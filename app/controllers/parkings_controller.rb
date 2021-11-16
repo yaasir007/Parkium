@@ -25,5 +25,10 @@ class ParkingsController < ApplicationController
     def edit
     end
 
+    def update
+        @parking.update(params_parking)
+        redirect_to parkings_path
+    end
+
 
 end
