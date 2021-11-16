@@ -6,12 +6,21 @@
 <li>Description: <%=  @parking.description %></li>       <br>
 <li>Number Of Slots: <%=  @parking.number_of_slots %></li>      <br>
 
- <% if @parking.fees > 0  %>
-    <li>Fees: <%=  @parking.fees %></li> 
- <% else %>
-    <li><h2>Free Parking</h2></li>
- <% end %>
+<% if @parking.fees > 0  %>
+   <li>Fees: <%=  @parking.fees %></li> 
+<% else %>
+   <li><h2>Free Parking</h2></li>
+<% end %>
 <br>
 <%= cl_image_tag @parking.photo.key, height: 100, width: 100, crop: :fill %>
 
 </div>
+
+
+<% if @user.is_admin %>
+   <%# <%= link_to  "Edit", edit_parking_path(@parking) %> %>
+   <%# <%= link_to  "Back", parkings_path %> %>
+   <%# <%= link_to "Delete", destroy_path, method: :delete, data: { confirm: "Are you sure?" } %> %>
+   <% else %>
+   <%# <%= link_to  "Back", parkings_path %> %>
+<% end %>
