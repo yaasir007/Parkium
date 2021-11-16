@@ -1,0 +1,18 @@
+<div align="center" style="padding-top:160px;">
+    <h1>Show For Admins</h1>
+
+<li>Name : <%= @parking.name %></li>                       <br><br>
+<li>Address: <%=  @parking.address %></li>                   <br><br>
+<li>Description: <%=  @parking.description %></li>               <br><br>
+<li>Number Of Slots: <%=  @parking.number_of_slots %></li>           <br><br>
+
+ <% if @parking.payable?  %>
+    <li>Fees: <%=  @parking.fees %></li> 
+ <% else %>
+    <li><h2>Free Parking</h2></li>
+ <% end %>
+
+
+<%= cl_image_tag @parking.photo.key, height: 100, width: 100, crop: :fill %>
+
+</div>

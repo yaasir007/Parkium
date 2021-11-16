@@ -1,0 +1,24 @@
+<div align="center">
+    
+
+    <% if @user.is_admin %>
+
+    <h1>Index For Admins</h1>
+    <br><br>
+
+    <% @parkings.each do |parking| %>
+    <ul>
+        <li>
+            <%= link_to parking.name, parking_path(parking) %> <br>
+            <%= cl_image_tag parking.photo.key, height: 100, width: 100, crop: :fill %>
+        </li>
+    </ul>
+    <% end %>
+
+
+<% else %>
+   <p>GO TO HELLLL </p>
+
+<% end %> 
+
+</div>
