@@ -7,6 +7,7 @@ class ParkingsController < ApplicationController
     end
 
     def show
+        @user = current_user
     end
 
     def new
@@ -14,8 +15,10 @@ class ParkingsController < ApplicationController
     end
 
     def create
+        @user = current_user
         @parking = Parking.new(params_parking)
-        if @parking.save
+        @parking.user_id = @user.id
+        if @parking.save!
             redirect_to parkings_path
         else
             redirect_to new_parking_path
