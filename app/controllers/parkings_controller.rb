@@ -1,13 +1,12 @@
 class ParkingsController < ApplicationController
     before_action :find_index, only: [:show, :edit, :update, :destroy]
+    before_action :find_user, only: [:index, :show, :edit, :new]
 
     def index
         @parkings = Parking.all
-        @user = current_user
     end
 
     def show
-        @user = current_user
     end
 
     def new
@@ -15,11 +14,11 @@ class ParkingsController < ApplicationController
     end
 
     def create
-        @user = current_user
         @parking = Parking.new(params_parking)
         @parking.user_id = @user.id
         if @parking.save!
             redirect_to parkings_path
+            flash[:alert] = "Parking Created."
         else
             redirect_to new_parking_path
         end    
@@ -31,11 +30,13 @@ class ParkingsController < ApplicationController
     def update
         @parking.update(params_parking)
         redirect_to parkings_path
+        flash[:alert] = "Parking Updated."
     end
 
     def destroy
         @parking.destroy
         redirect_to parkings_path
+        flash[:alert] = "Parking Space Removed."
     end
 
 
@@ -43,6 +44,10 @@ class ParkingsController < ApplicationController
 
     def find_index
         @parking = Parking.find(params[:id])
+    end
+
+    def find_user
+        @user = current_user
     end
 
     def params_parking
