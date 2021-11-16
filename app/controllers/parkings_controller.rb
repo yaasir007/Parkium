@@ -34,12 +34,16 @@ class ParkingsController < ApplicationController
         @parking.destroy
         redirect_to parkings_path
     end
-    
+
 
     private
 
     def find_index
         @parking = Parking.find(params[:id])
+    end
+
+    def params_parking
+        params.require(:parking).permit(:name, :address, :description, :photo, :number_of_slots, :payable?, :fees)
     end
 
 end
