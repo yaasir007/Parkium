@@ -30,5 +30,10 @@ class ParkingsController < ApplicationController
         redirect_to parkings_path
     end
 
+    def destroy
+        @parking.destroy
+        redirect_to parkings_path
+    end
+
 
 end
