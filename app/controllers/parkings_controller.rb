@@ -34,6 +34,12 @@ class ParkingsController < ApplicationController
         @parking.destroy
         redirect_to parkings_path
     end
+    
 
+    private
+
+    def find_index
+        @parking = Parking.find(params[:id])
+    end
 
 end
