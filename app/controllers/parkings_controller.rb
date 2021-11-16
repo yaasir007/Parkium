@@ -1,6 +1,6 @@
 class ParkingsController < ApplicationController
     before_action :find_index, only: [:show, :edit, :update, :destroy]
-    
+
     def index
         @parkings = Parking.all
         @user = current_user
@@ -8,4 +8,10 @@ class ParkingsController < ApplicationController
 
     def show
     end
+
+    def new
+        @parking = Parking.new
+    end
+
+    
 end
