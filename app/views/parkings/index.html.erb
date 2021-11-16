@@ -1,28 +1,29 @@
-<div align="center">
     <!--the admin code starts here -->
-    <% if @user.is_admin %>
+<h1>List of Parking Spaces</h1>
+        <br><br>
+<% @parkings.each do |parking| %>
+<div>
+    <% if @user.is_admin && parking.user_id == @user.id %>
+        <ul>
+            <li>
+                <%= link_to parking.name, parking_path(parking) %> <br>
+                <%= cl_image_tag parking.photo.key, height: 100, width: 100, crop: :fill %>
+            </li>
+        </ul>
+</div>
+    <!--the admin code ends here -->
 
-    <h1>Index For Admins</h1>
-    <br><br>
-
-    <% @parkings.each do |parking| %>
-    <ul>
-        <li>
-            <%= link_to parking.name, parking_path(parking) %> <br>
-            <%= cl_image_tag parking.photo.key, height: 100, width: 100, crop: :fill %>
-        </li>
-    </ul>
-    <% end %>
-        <!--the admin code ends here -->
-<% else %>
     <!--the user code starts here -->
-    <% @parkings.each do |parking| %>
+    <% elsif  @user.is_admin == false %>
+<div>
     <ul>
         <li>
-            <%= link_to parking.name, parking_path(parking) %> <br>
+            <%= link_to parking.name, parking_path(parking) %> 
             <%= cl_image_tag parking.photo.key, height: 100, width: 100, crop: :fill %>
         </li>
     </ul>
+</div>
     <% end %>
 <% end %> 
-</div>
+
+<!--the admin code ends here -->
