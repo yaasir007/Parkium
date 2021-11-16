@@ -1,6 +1,6 @@
 <div align="center">
-    
-
+    <!--the admin code starts here -->
+    <%= raise %>
     <% if @user.is_admin %>
 
     <h1>Index For Admins</h1>
@@ -14,11 +14,16 @@
         </li>
     </ul>
     <% end %>
-
-
+        <!--the admin code ends here -->
 <% else %>
-   <p>GO TO HELLLL </p>
-
+    <!--the user code starts here -->
+    <% @parkings.each do |parking| %>
+    <ul>
+        <li>
+            <%= link_to parking.name, parking_path(parking) %> <br>
+            <%= cl_image_tag parking.photo.key, height: 100, width: 100, crop: :fill %>
+        </li>
+    </ul>
+    <% end %>
 <% end %> 
-
 </div>
