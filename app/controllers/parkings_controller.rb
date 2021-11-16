@@ -13,5 +13,14 @@ class ParkingsController < ApplicationController
         @parking = Parking.new
     end
 
-    
+    def create
+        @parking = Parking.new(params_parking)
+        if @parking.save
+            redirect_to parkings_path
+        else
+            redirect_to new_parking_path
+        end    
+    end
+
+
 end
