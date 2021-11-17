@@ -12,7 +12,7 @@
    <li><h2>Free Parking</h2></li>
 <% end %>
 <br>
-<%= cl_image_tag @parking.photo.key, height: 100, width: 100, crop: :fill %>
+<%= cl_image_tag @parking.photo.key, height: 100, width: 100, crop: :fill %> 
 
 </div>
 
@@ -23,7 +23,8 @@
    <%= link_to "Delete", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" } %>
    <!-- User code -->
    <% else %>
-   <%= link_to  "Back", parkings_path %>
-   <%= link_to  "View Reviews",  parking_reviews_path(@parking) %>
-   <%= link_to  "Make Booking", new_parking_booking_path(@parking) %>
+   <br>
+   <%= link_to  "Back", parkings_path, class: "btn btn-info" %>
+   <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %>
+   <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-dark" %>
 <% end %>

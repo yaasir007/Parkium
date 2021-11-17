@@ -20,6 +20,10 @@
         <li class="nav-item">
           <%= link_to "New Parking Space",new_parking_path, class: "nav-link" %>
         </li>
+        <% else %>
+         <li class="nav-item">
+          <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
+        </li>
         <% end %>
         <!-- It ends here  -->
         
