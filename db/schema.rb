@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_175240) do
+ActiveRecord::Schema.define(version: 2021_11_17_120158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,10 @@ ActiveRecord::Schema.define(version: 2021_11_16_175240) do
     t.time "start_time"
     t.time "end_time"
     t.bigint "user_id", null: false
-    t.bigint "slot_id", null: false
     t.bigint "parking_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["parking_id"], name: "index_bookings_on_parking_id"
-    t.index ["slot_id"], name: "index_bookings_on_slot_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -108,7 +106,6 @@ ActiveRecord::Schema.define(version: 2021_11_16_175240) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "parkings"
-  add_foreign_key "bookings", "slots"
   add_foreign_key "bookings", "users"
   add_foreign_key "parkings", "users"
   add_foreign_key "reviews", "parkings"
