@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :parkings do
   delete 'parkings/:id', to: 'parkings#destroy', as: :destroy
 
-  resources :reviews 
+  resources :reviews
+  delete 'reviews/:id', to: 'reviews#destroy', as: :remove
   end
 
   devise_scope :user do

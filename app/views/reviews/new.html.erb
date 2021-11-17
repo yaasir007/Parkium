@@ -1,16 +1,11 @@
 <div>
     <h1>Creation of a new Review </h1>
-
-    <%= simple_form_for [@parking] do |f| %>
-    <%= f.input :name, html5: true %>
-    <%= f.input :address, html5: true %>
-    <%= f.input :description, html5: true %>
-    <%= f.input :number_of_slots, html5: true %>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :payable?, label: "Are you going to charge people for your Parking Space?", collection: ['Yes', 'No'], selected: 'No' %>
-    <%= f.input :fees, label: "Fees (Rs) / Hr", html5: true%>
-    <%= f.submit 'Create Parking Space' %>
+    <%= simple_form_for  [@parking, @review] do |f| %>
+    <%= f.input :content, html5: true, required: true %>
+    <%= f.input :rating, collection: 1..5 %>
+    <%= f.submit 'Create Review' %>
     <% end %>
 </div>
 
- <%= link_to  "Back", parkings_path %>
+ <%= link_to  "Back", parking_reviews_path(@parking) %>
+
