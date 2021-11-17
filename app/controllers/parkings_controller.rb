@@ -1,6 +1,8 @@
 class ParkingsController < ApplicationController
     before_action :find_index, only: [:show, :edit, :update, :destroy]
     before_action :find_user, only: [:index, :show, :edit, :new, :create]
+    before_action :params_parking, only: [:create]
+
 
     def index
         @parkings = Parking.all
