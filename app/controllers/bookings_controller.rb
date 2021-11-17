@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   def index
     @parking = Parking.find(params[:parking_id])
     @bookings = @parking.bookings
@@ -6,37 +7,22 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @parking = Parking.find(params[:parking_id])
-    @booking = @parking.bokings
+    @booking = @parking.bookings
   end
 
   def new
+    @user = current_user
     @parking = Parking.find(params[:parking_id])
     @booking = Booking.new
   end
 
-  def create
-    @booking = Booking.new(booking_params)
-    @booking.parking = @parking
-    @bookings.save
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
 
 private
 
-#def find_parking
-#@parking = Parking.find(params[:parking_id])
-#end
 def booking_params
-  params.require(:parking).permit(:date, :start_time, :end_time)
+  params.require(:booking).permit(:date, :start_time, :end_time)
 end
 
 end

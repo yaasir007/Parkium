@@ -2,6 +2,6 @@
 <br>
 <p><% @bookings.each do |booking| %></p>
 <%= booking.date %>
-<%= booking.start_time %>
-<%= booking.end_time %>
+<%= link_to "show", parking_booking_path(@parking,booking) %>
+
 <%end %>
