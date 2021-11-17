@@ -8,6 +8,7 @@ before_action :find_user, only:[:index, :new, :create, :destroy]
     end
 
     def new
+
         @parking = Parking.find(params[:parking_id])
         @review = Review.new
     end
@@ -32,7 +33,7 @@ before_action :find_user, only:[:index, :new, :create, :destroy]
         redirect_to parking_reviews_path(@parking)
         flash[:alert] = "Review Removed."
    end
-
+       
     private
 
     def find_user
