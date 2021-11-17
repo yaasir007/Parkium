@@ -1,3 +1,12 @@
 <h1>All reviews</h1>
 
+<% @reviews.each do |review| %>
+<ul>
+    <li>
+        Feedback: <%= review.content  %> ////////////////////
+        Rating: <%= review.rating  %> / 5
+    </li>
+</ul>
+<% end %>
+
 <%= link_to  "Create a Review", new_parking_review_path %>
