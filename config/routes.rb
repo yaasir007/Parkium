@@ -4,14 +4,12 @@ Rails.application.routes.draw do
 
   resources :parkings do
   delete 'parkings/:id', to: 'parkings#destroy', as: :destroy
-    
+  
+  resources :bookings
   resources :reviews
   delete 'reviews/:id', to: 'reviews#destroy', as: :remove
-    
-  resources :bookings, only:[:new, :create, :index, :show]
-  end
 
-  resources :bookings, only:[:destroy, :edit, :update]
+  end
 
   devise_scope :user do
     authenticated :user do
