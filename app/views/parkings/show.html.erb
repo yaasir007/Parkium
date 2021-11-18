@@ -1,18 +1,22 @@
-<div>
-   <h1>Parking Details: </h1>
-
-<li>Name : <%= @parking.name %></li>                       <br>
-<li>Address: <%=  @parking.address %></li>                   <br>
-<li>Description: <%=  @parking.description %></li>       <br>
-<li>Number Of Slots: <%=  @parking.number_of_slots %></li>      <br>
-
+<div >
+   <h3 align="center">Parking Details: </h3>
+<div class="parking-details">
+    Name : <%= @parking.name %> <br>
+    Address: <%=  @parking.address %> <br>
+    Description: <%=  @parking.description %> <br>
+    Number Of Slots: <%=  @parking.number_of_slots %> <br>
+</div>
 <% if @parking.fees > 0  %>
-   <li>Fees: <%=  @parking.fees %></li> 
+   <li>Fees: <%=  @parking.fees %></li>
 <% else %>
    <li><h2>Free Parking</h2></li>
 <% end %>
 <br>
+<<<<<<< HEAD
 <%= cl_image_tag @parking.photo.key, height: 100, width: 100, crop: :fill %> 
+=======
+<%= cl_image_tag @parking.photo.key, height: 200, width: 200, crop: :fill %>
+>>>>>>> e38d7f6e73d2134f9ac984e757153186a653ec56
 
 </div>
 
@@ -24,7 +28,13 @@
    <!-- User code -->
    <% else %>
    <br>
+<<<<<<< HEAD
    <%= link_to  "Back", parkings_path, class: "btn btn-info" %>
    <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %>
    <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-dark" %>
+=======
+   <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
+   <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %>
+   <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info" %>
+>>>>>>> e38d7f6e73d2134f9ac984e757153186a653ec56
 <% end %>
