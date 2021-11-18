@@ -1,5 +1,9 @@
 <h1>My Bookings</h1>
 
-<% @user.bookings.each do |parking| %>
-    <%= parking %>
+<% @bookings.each do |booking| %>
+    <% if @user.id ==  booking.user_id %>
+    <%= booking.date %> <br>
+    <%= booking.start_time %> <br>
+    <%= booking.end_time %> <br>
+    <% end %>
 <% end %>

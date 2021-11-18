@@ -7,12 +7,6 @@ before_action :booking_params, only: :create
     @user = current_user
   end
 
-  def show
-    @user = current_user
-    @parking = Parking.find(params[:parking_id])
-    @booking = @parking.bookings
-  end
-
   def new
     @user = current_user
     @parking = Parking.find(params[:parking_id])
