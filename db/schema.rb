@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_120158) do
+ActiveRecord::Schema.define(version: 2021_11_18_054025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(version: 2021_11_17_120158) do
     t.string "description"
     t.integer "number_of_slots"
     t.integer "fees"
-    t.boolean "payable", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.integer "available_slots"
     t.index ["user_id"], name: "index_parkings_on_user_id"
   end
 
@@ -81,10 +81,8 @@ ActiveRecord::Schema.define(version: 2021_11_17_120158) do
 
   create_table "slots", force: :cascade do |t|
     t.integer "slot_number"
-    t.bigint "parking_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["parking_id"], name: "index_slots_on_parking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -110,5 +108,4 @@ ActiveRecord::Schema.define(version: 2021_11_17_120158) do
   add_foreign_key "parkings", "users"
   add_foreign_key "reviews", "parkings"
   add_foreign_key "reviews", "users"
-  add_foreign_key "slots", "parkings"
 end
