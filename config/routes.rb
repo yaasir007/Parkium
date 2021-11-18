@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'mybookings', to: 'users#my_bookings'
+  resources :bookings, only: [:destroy]
 
   resources :parkings do
   delete 'parkings/:id', to: 'parkings#destroy', as: :destroy
-  
-  resources :bookings
+
+  resources :bookings, except: [:destroy]
+
   resources :reviews
   delete 'reviews/:id', to: 'reviews#destroy', as: :remove
-
   end
 
   devise_scope :user do

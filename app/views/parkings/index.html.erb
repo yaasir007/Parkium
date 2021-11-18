@@ -25,7 +25,9 @@
         <ul>
             <li>
                 <%= link_to parking.name, parking_path(parking) %> <br>
+              <% if parking.photo.attached? %>
                 <%= cl_image_tag parking.photo.key, height: 200, width: 200, crop: :fill %>
+              <% end %>
             </li>
         </ul>
 
