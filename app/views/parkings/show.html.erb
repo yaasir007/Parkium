@@ -23,7 +23,9 @@
    <%= link_to "Delete", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" } %>
    <!-- User code -->
    <% else %>
-   <%= link_to  "Back", parkings_path %>
-   <%= link_to  "View Reviews",  parking_reviews_path(@parking) %>
-   <%= link_to  "Make Booking", new_parking_booking_path(@parking) %>
+   <br>
+   <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
+   <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %>
+   <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info" %>
+   <%= link_to  "My Booking", parking_bookings_path(@parking), class: "btn btn-secondary" %>
 <% end %>
