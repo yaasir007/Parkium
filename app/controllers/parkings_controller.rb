@@ -18,8 +18,9 @@ class ParkingsController < ApplicationController
     def create
         @parking = Parking.new(params_parking)
         @parking.user_id = @user.id
+        @parking.number_of_slots = @slots
         if @parking.save!
-            @parking.available_slots = @parking.number_of_slots
+            @slots = @parking.available_slots
             redirect_to parkings_path
             flash[:alert] = "Parking Created."
         else
