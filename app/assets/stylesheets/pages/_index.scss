@@ -1,3 +1,16 @@
 // Import page-specific CSS files here.
 @import "home";
 
+.container {
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+}
+
+.centered {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+
+}
