@@ -8,7 +8,6 @@
     <%= f.input :description, html5: true %>
     <%= f.input :number_of_slots, html5: true %>
     <%= f.input :photo, as: :file %>
-    <%= f.input :payable?, label: "Are you going to charge people for your Parking Space?", collection: ['Yes', 'No'], selected: 'No' %>
     <%= f.input :fees, label: "Fees (Rs) / Hr", html5: true%>
     <%= f.submit 'Create Parking Space' %>
     <% end %>
