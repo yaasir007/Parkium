@@ -11,16 +11,10 @@
 <% else %>
    <li><h2>Free Parking</h2></li>
 <% end %>
+
 <br>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <%= cl_image_tag @parking.photo.key, height: 100, width: 100, crop: :fill %> 
-=======
-<%= cl_image_tag @parking.photo.key, height: 200, width: 200, crop: :fill %>
->>>>>>> e38d7f6e73d2134f9ac984e757153186a653ec56
-=======
-<%= cl_image_tag @parking.photo.key, height: 200, width: 200, crop: :fill %>
->>>>>>> e38d7f6e73d2134f9ac984e757153186a653ec56
 
 </div>
 
@@ -32,19 +26,7 @@
    <!-- User code -->
    <% else %>
    <br>
-<<<<<<< HEAD
-<<<<<<< HEAD
-   <%= link_to  "Back", parkings_path, class: "btn btn-info" %>
-   <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %>
-   <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-dark" %>
-=======
    <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
    <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %>
    <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info" %>
->>>>>>> e38d7f6e73d2134f9ac984e757153186a653ec56
-=======
-   <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
-   <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %>
-   <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info" %>
->>>>>>> e38d7f6e73d2134f9ac984e757153186a653ec56
 <% end %>
