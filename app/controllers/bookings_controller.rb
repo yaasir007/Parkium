@@ -1,12 +1,6 @@
 class BookingsController < ApplicationController
 before_action :booking_params, only: :create
 
-  def index
-    @parking = Parking.find(params[:parking_id])
-    @bookings = @parking.bookings
-    @user = current_user
-  end
-
   def new
     @user = current_user
     @parking = Parking.find(params[:parking_id])
@@ -21,7 +15,7 @@ before_action :booking_params, only: :create
       @booking.parking_id = @parking.id
       if @booking.save!
           flash[:alert] = "Booking Created."
-          redirect_to parking_bookings_path(@parking)
+          redirect_to mybookings_path
       else
           redirect_to new_parking_booking_path(@parking)
       end

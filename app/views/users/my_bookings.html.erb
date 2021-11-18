@@ -2,8 +2,11 @@
 
 <% @bookings.each do |booking| %>
     <% if @user.id ==  booking.user_id %>
-    <%= booking.date %> <br>
-    <%= booking.start_time %> <br>
-    <%= booking.end_time %> <br>
+    Booked for: <%= booking.date %> <br>
+    Start Time: <%= booking.start_time.strftime("at %I:%M%p") %> <br>
+    End Time: <%= booking.end_time.strftime("at %I:%M%p") %> 
+    <br>
+    <%= link_to  "Back", parkings_path %>
+     <br> <br>
     <% end %>
 <% end %>
