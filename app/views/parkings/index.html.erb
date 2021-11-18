@@ -7,8 +7,8 @@
         <ul>
             <li>
                 <%= link_to parking.name, parking_path(parking) %> <br>
-                <% if parking.photo.atached? %>
-                <%= cl_image_tag parking.photo.key, height: 100, width: 100, crop: :fill %>
+                <% if parking.photo.attached? %>
+                <%= cl_image_tag parking.photo.key, height: 200, width: 200, crop: :fill %>
                 <% else %>
                 No Photo Available
                 <% end %>
