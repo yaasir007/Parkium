@@ -1,0 +1,7 @@
+<h1>List of bookings</h1>
+<br>
+<p><% @bookings.each do |booking| %></p>
+<%= booking.date %>
+<%= link_to "show", parking_booking_path(@parking,booking) %>
+
+<%end %>
