@@ -1,34 +1,42 @@
-    <!--the admin code starts here -->
-<h1 align="center">List of Parking Locations</h1>
-        <br><br>
-<% @parkings.each do |parking| %>
-<div>
-    <% if @user.is_admin && parking.user_id == @user.id %>
+      <!--the admin code starts here -->
+    <h2 style="text-align: center">List of Parking Locations</h2>
+            <br><br>
+<div class="cards">
+    <% @parkings.each do |parking| %>
+        <% if @user.is_admin && parking.user_id == @user.id %>
+            <div class="card-trip">
+                 <% if parking.photo.attached? %>
+                    <%= cl_image_tag parking.photo.key, crop: :fill %>
+                    <% else %>
+                        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+                    <% end %>
+                <div class="card-trip-infos">
+                    <div>
+                         <h2><%= link_to parking.name, parking_path(parking) %></h2>
+                        <p><%= parking.address %></p>
+                    </div>
+                    <h2 class="card-trip-pricing">Rs.<%= parking.fees %>/hr</h2>
+                </div>
+            </div>
+        <!--the admin code ends here -->
+
+        <!--the user code starts here -->
+        <% elsif  @user.is_admin == false %>
         <ul>
             <li>
                 <%= link_to parking.name, parking_path(parking) %> <br>
-                <% if parking.photo.attached? %>
+              <% if parking.photo.attached? %>
                 <%= cl_image_tag parking.photo.key, height: 200, width: 200, crop: :fill %>
-                <% else %>
-                No Photo Available
-                <% end %>
+              <% end %>
             </li>
         </ul>
-</div>
-    <!--the admin code ends here -->
 
-    <!--the user code starts here -->
-    <% elsif  @user.is_admin == false %>
-<div>
-    <ul>
-        <li>
-            <%= link_to parking.name, parking_path(parking) %> <br>
-            <%= cl_image_tag parking.photo.key, height: 200, width: 200, crop: :fill %>
-        </li>
-    </ul>
-</div>
+        <% end %>
     <% end %>
-<% end %>
+</div>
 
 <!--the admin code ends here -->
+
+
+
 
