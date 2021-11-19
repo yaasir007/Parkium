@@ -1,0 +1,36 @@
+.park-show {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.park-show > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.park-show h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.park-show p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.park-show .park-show-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+

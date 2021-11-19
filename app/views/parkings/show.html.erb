@@ -1,29 +1,59 @@
-<div >
-   <h3 align="center">Parking Details: </h3>
-      <div class="parking-details">
-         Name : <%= @parking.name %> <br>
-         Address: <%=  @parking.address %> <br>
-         Description: <%=  @parking.description %> <br>
-         Number Of Slots: <%=  @parking.number_of_slots %> <br>
+<!-- Admin code Start-->
+
+<div class="container">
+ <% if @user.is_admin %>
+  <div>
+    <h3 align="center"><%= @parking.name %> </h3>
+      <div class="park-show">
+        <% if @parking.photo.attached? %>
+            <%= cl_image_tag @parking.photo.key, crop: :fill %>
+        <% else %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <% end %>  <div class="park-show-infos">
+        <div>
+          <p> Address: <%=  @parking.address %></p>
+          <p> Description: <%=  @parking.description %></p>
+          <p> Number Of Slots: <%=  @parking.number_of_slots %></p>
+          <p>  Rs<%=@parking.fees %></p>
+        </div>
+        <h2 class="park-show-pricing"><%= link_to  "Edit", edit_parking_path(@parking),class: "btn btn-success" %></h2>
       </div>
-      <% if @parking.fees > 0  %>
-         <li>Fees: <%=  @parking.fees %></li>
-      <% else %>
-         <li><h2>Free Parking</h2></li>
-      <% end %>
-      <br>
-   <%= cl_image_tag @parking.photo.key, height: 200, width: 200, crop: :fill %>
+   </div>
+ </div>
+    <%= link_to  "Back", parkings_path ,class: "btn btn-success"%>
+    <%= link_to "Delete", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger"%>
+  <!-- Admin code End -->
+
+ <% else %>
+
+
+  <!-- User code Start-->
+    <br>
+  <div >
+    <h3 align="center"><%= @parking.name %></h3>
+      <div class="park-show">
+        <% if @parking.photo.attached? %>
+          <%= cl_image_tag @parking.photo.key, crop: :fill %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <% end %> <div class="park-show-infos">
+          <div>
+            <p> Description: <%=  @parking.description %></p>
+            <p> Number Of Slots: <%=  @parking.number_of_slots %></p>
+            <p><%=@parking.address %></p>
+          </div>
+          <div>
+           <h2 class="park-show-pricing"><%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %></h2>
+          </div>
+          <div>
+           <h2 class="park-show-pricing">Rs<%=@parking.fees%>/hr  <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info" %></h2>
+          </div>
+    </div>
+  </div>
+
+</div>
+  <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
+<% end %>
 </div>
 
-<!-- Admin code -->
-<% if @user.is_admin %>
-   <%= link_to  "Edit", edit_parking_path(@parking) %>
-   <%= link_to  "Back", parkings_path %>
-   <%= link_to "Delete", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" } %>
-   <!-- User code -->
-   <% else %>
-   <br>
-   <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
-   <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %>
-   <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info" %>
-<% end %>
+<!-- User code End-->
