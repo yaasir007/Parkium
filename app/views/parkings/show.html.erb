@@ -16,12 +16,14 @@
           <p> Number Of Slots: <%=  @parking.number_of_slots %></p>
           <p>  Rs<%=@parking.fees %></p>
         </div>
-        <h2 class="park-show-pricing"><%= link_to  "Edit", edit_parking_path(@parking),class: "btn btn-success" %></h2>
+        <h2 class="park-show-pricing"><%= link_to  "Edit", edit_parking_path(@parking),class: "btn btn-success p-3" %></h2>
       </div>
    </div>
  </div>
-    <%= link_to  "Back", parkings_path ,class: "btn btn-success"%>
-    <%= link_to "Delete", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger"%>
+        <div class="text-center">
+            <%= link_to  "Back", parkings_path ,class: "btn btn-dark p-3"%>
+            <%= link_to "Delete", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3"%>
+        </div>
   <!-- Admin code End -->
 
  <% else %>
@@ -43,16 +45,20 @@
             <p><%=@parking.address %></p>
           </div>
           <div>
-           <h2 class="park-show-pricing"><%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %></h2>
+            <h2 class="park-show-pricing"></h2>
           </div>
           <div>
-           <h2 class="park-show-pricing">Rs<%=@parking.fees%>/hr  <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info" %></h2>
+            <h2 class="park-show-pricing">Rs<%=@parking.fees%>/hr </h2>
           </div>
     </div>
   </div>
 
 </div>
-  <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
+  <div class="text-center m-3">
+    <%= link_to  "Back", parkings_path, class: "btn btn-dark p-3" %>
+    <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info p-3" %>
+    <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success p-3" %>
+  </div>
 <% end %>
 </div>
 
