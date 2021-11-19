@@ -43,16 +43,20 @@
             <p><%=@parking.address %></p>
           </div>
           <div>
-           <h2 class="park-show-pricing"><%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success" %></h2>
+           <h2 class="park-show-pricing"></h2>
           </div>
           <div>
-           <h2 class="park-show-pricing">Rs<%=@parking.fees%>/hr  <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info" %></h2>
+           <h2 class="park-show-pricing">Rs<%=@parking.fees%>/hr </h2>
           </div>
     </div>
   </div>
 
 </div>
-  <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
+  <div class="text-center m-3">
+    <%= link_to  "Back", parkings_path, class: "btn btn-dark p-3" %>
+    <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info p-3" %>
+    <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success p-3" %>
+  </div>
 <% end %>
 </div>
 
