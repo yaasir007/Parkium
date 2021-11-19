@@ -1,4 +1,5 @@
 <!--the admin code starts here -->
+
 <div class="container">
     <h2 style="text-align: center">List of Parking Locations</h2>
             <br>
@@ -19,9 +20,11 @@
                                     <h2 class="card-trip-pricing">Rs.<%= parking.fees %>/hr</h2>
                             </div>
                     </div>
+
         <!--the admin code ends here -->
 
         <!--the user code starts here -->
+
                 <% elsif  @user.is_admin == false %>
                     <div class="card-trip">
                             <% if parking.photo.attached? %>
@@ -42,4 +45,4 @@
         </div>
 </div>
 
-<!--the user code ends here -->
+        <!--the user code ends here -->
