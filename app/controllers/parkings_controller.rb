@@ -1,61 +1,67 @@
 class ParkingsController < ApplicationController
-    before_action :find_index, only: [:show, :edit, :update, :destroy]
-    before_action :find_user, only: [:index, :show, :edit, :new, :create]
-    before_action :params_parking, only: [:create]
+  before_action :find_index, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:index, :show, :edit, :new, :create]
+  before_action :params_parking, only: [:create]
 
+  def index
+    @parkings = Parking.all
 
-    def index
-        @parkings = Parking.all
+    # Geocoder Start
+    @markers = @parkings.geocoded.map do |parking|
+    {
+      lat: parking.latitude,
+      lng: parking.longitude
+    }
     end
+    # Geocoder End
+  end
 
-    def show
+  def show
+  end
+
+  def new
+    @parking = Parking.new
+  end
+
+  def create
+    @parking = Parking.new(params_parking)
+    @parking.user_id = @user.id
+    @parking.number_of_slots = @slots
+    if @parking.save!
+      @slots = @parking.available_slots
+      redirect_to parkings_path
+      flash[:alert] = "Parking Created."
+    else
+      redirect_to new_parking_path
     end
+  end
 
-    def new
-        @parking = Parking.new
-    end
+  def edit
+  end
 
-    def create
-        @parking = Parking.new(params_parking)
-        @parking.user_id = @user.id
-        @parking.number_of_slots = @slots
-        if @parking.save!
-            @slots = @parking.available_slots
-            redirect_to parkings_path
-            flash[:alert] = "Parking Created."
-        else
-            redirect_to new_parking_path
-        end    
-    end
+  def update
+    @parking.update(params_parking)
+    redirect_to parkings_path
+    flash[:alert] = "Parking Updated."
+  end
 
-    def edit
-    end
+  def destroy
+    @parking.destroy
+    redirect_to parkings_path
+    flash[:alert] = "Parking Space Removed."
+  end
 
-    def update
-        @parking.update(params_parking)
-        redirect_to parkings_path
-        flash[:alert] = "Parking Updated."
-    end
+  private
 
-    def destroy
-        @parking.destroy
-        redirect_to parkings_path
-        flash[:alert] = "Parking Space Removed."
-    end
+  def find_index
+    @parking = Parking.find(params[:id])
+  end
 
+  def find_user
+    @user = current_user
+  end
 
-    private
-
-    def find_index
-        @parking = Parking.find(params[:id])
-    end
-
-    def find_user
-        @user = current_user
-    end
-
-    def params_parking
-        params.require(:parking).permit(:name, :address, :description, :photo, :number_of_slots, :fees)
-    end
-
+  def params_parking
+    params.require(:parking).permit(:name, :address, :description, :photo, :number_of_slots, :fees)
+  end
 end
