@@ -2,14 +2,12 @@
     <main class="s">
         <div class="centered"  style="color:white;">
             <div class="logo text-center">
-                <br>
-                    <img src="https://res.cloudinary.com/dac3khgir/image/upload/v1637250092/development/logo_transparent_xmvfi0.png">
-            <div>
-                <h1>Welcome to Parkium</h1>
+                <br><br>
+                   <%= image_tag "logo2.png" %><div>
                 <br>
                 <p>ENTER PARKIUM</p>
-                    <%= link_to "As a Parking Seeker", new_user_session_path, class:"btn btn-primary" %> 
-                    or 
+                    <%= link_to "As a Parking Seeker", new_user_session_path, class:"btn btn-primary" %>
+                    or
                 <%= link_to "As a Parking Owner", new_user_session_path, class:"btn btn-success" %>
         </div>
     </main>
