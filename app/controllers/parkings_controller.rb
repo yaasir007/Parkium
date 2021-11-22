@@ -6,6 +6,14 @@ class ParkingsController < ApplicationController
 
     def index
         @parkings = Parking.all
+
+        # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+        @markers = @parkings.geocoded.map do |parking|
+            {
+            lat: parking.latitude,
+            lng: parking.longitude
+            }
+        end
     end
 
     def show
