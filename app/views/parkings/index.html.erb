@@ -1,4 +1,4 @@
-<!--the admin code starts here -->
+<!--the admin code starts here 
 <body>
 <div class="container">
     <h2 style="text-align: center">List of Parking Locations</h2>
@@ -21,9 +21,9 @@
                             </div>
                     </div>
 
-        <!--the admin code ends here -->
+        the admin code ends here -->
 
-        <!--the user code starts here -->
+        <!--the user code starts here 
 
                 <% elsif  @user.is_admin == false %>
                     <div class="card-trip">
@@ -46,15 +46,17 @@
 </div>
 </body>
 
-        <!--the user code ends here -->
+        the user code ends here -->
 
 
         <!-- The Mapbox view starts here -->
 
     <div id="map"
-            style="width: 60%; height: 400px;"
+            style="width: 100vw; height: 100vh;"
             data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
+    <button id="fit">Fit to Mauritius</button>
 
         <!-- The Mapbox view ends here -->
