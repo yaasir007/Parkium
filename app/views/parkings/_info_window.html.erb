@@ -1,2 +1,12 @@
-<h2><%= parking.name %></h2>
-<p><%= parking.address %></p>
+<%= cl_image_tag parking.photo.key, crop: :fill %>
+<div class="container">
+    <div>
+    <br>
+    <p><%= link_to  parking.name, parking_path(parking) %></p>
+        <%= parking.address %> <br>
+        <%= parking.description %> <br>
+        <div id="lefting">
+            Fees: <%= parking.fees %>
+        </div>
+    <div>
+</div>
