@@ -47,3 +47,14 @@
 </body>
 
         <!--the user code ends here -->
+
+
+        <!-- The Mapbox view starts here -->
+
+    <div id="map"
+            style="width: 100%; height: 600px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+        <!-- The Mapbox view ends here -->
