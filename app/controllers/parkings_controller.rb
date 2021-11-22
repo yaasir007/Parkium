@@ -18,6 +18,8 @@ class ParkingsController < ApplicationController
   def show
     # Reviews method added to show on parkings show page
     @reviews = Review.all
+    @review = Review.new
+    @booking = Booking.new
   end
 
   def new
