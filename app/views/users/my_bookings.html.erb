@@ -1,23 +1,25 @@
 <!--User code -->
-
-<% @bookings.reverse_each do |booking| %>
 <br>
 <div align="center">
-        <% if @user.id ==  booking.user_id %>
-        <div class="card-product d-flex justify-content-between ">
-            <div> <%= link_to  "Back", parkings_path, class: "btn btn-info" %> </div>
-                <div>
+    <h1>My Bookings</h1>
+        <% @bookings.reverse_each do |booking| %>
+            <% if @user.id ==  booking.user_id %>
+                <div class="card-product d-flex justify-content-between ">
+                    <div> <%= link_to  "Back", parkings_path, class: "btn btn-info" %> </div>
+                        <div>
+                            <div>
+                                <p>Booked for:  <%= booking.date %></h2></p>
+                                <p>Start_Time - <%= booking.start_time.strftime("%I:%M%p") %></p>
+                                <p>End_Time - <%= booking.end_time.strftime("%I:%M%p") %> </p>
+                            </div>
+                        </div>
                     <div>
-                    <p>Booked for:  <%= booking.date %></h2></p>
-                    <p>Start_Time - <%= booking.start_time.strftime("%I:%M%p") %></p>
-                    <p>End_Time - <%= booking.end_time.strftime("%I:%M%p") %> </p>
+                        <%= link_to "Delete", booking_path(booking) , method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
                     </div>
-                </div>
-            <div>    <%= link_to "Delete", booking_path(booking) , method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %> </div>
-        </div>
+            </div>
         <br><br>
-        <% end %>
     <% end %>
+<% end %>
 </div>
 
 <!--User code ends -->
