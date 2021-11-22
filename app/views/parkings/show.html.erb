@@ -50,6 +50,7 @@
           <div>
             <h2 class="park-show-pricing">Rs<%=@parking.fees%>/hr </h2>
           </div>
+
     </div>
   </div>
 
@@ -57,8 +58,33 @@
   <div class="text-center m-3">
     <%= link_to  "Back", parkings_path, class: "btn btn-dark p-3" %>
     <%= link_to  "Make Booking", new_parking_booking_path(@parking), class: "btn btn-info p-3" %>
-    <%= link_to  "View Reviews",  parking_reviews_path(@parking), class: "btn btn-success p-3" %>
+
   </div>
+
+  <div class="container">
+        <br><br><br>
+    <h1>All reviews</h1>
+
+    <% @reviews.each do |review| %>
+      <!--If statement to only dislay the reviews related to this specific parking-->
+        <% if review.parking == @parking %>
+    <ul>
+        <li>
+            Feedback: <%= review.content  %> ////////////////////
+            Rating: <%= review.rating  %> / 5 ////////////////////
+            <!--If statement to only allow current_user to delete their review-->
+            <%if review.user == current_user %>
+              <%= link_to "Delete Review", parking_remove_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%>
+            <%end%>
+
+        </li>
+
+    </ul>
+        <% end %>
+    <% end %>
+
+    <%= link_to  "Create a Review", new_parking_review_path(@parking), class: "btn btn-info p-3" %>
+</div>
 <% end %>
 </div>
 
