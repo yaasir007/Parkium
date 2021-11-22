@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'mybookings', to: 'users#my_bookings'
+  get 'adminparking', to: 'users#parking_admin'
   resources :bookings, only: [:destroy]
 
   resources :parkings do
