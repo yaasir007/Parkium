@@ -11,7 +11,8 @@ class ParkingsController < ApplicationController
         @markers = @parkings.geocoded.map do |parking|
             {
             lat: parking.latitude,
-            lng: parking.longitude
+            lng: parking.longitude,
+            info_window: render_to_string(partial: "info_window", locals: { parking: parking })
             }
         end
     end
