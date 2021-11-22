@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users 
+  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'mybookings', to: 'users#my_bookings'
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :bookings, except: [:destroy]
 
-  resources :reviews
+  resources :reviews, except: [:index, :edit, :update, :show] #routes for only new,create,destroy
   delete 'reviews/:id', to: 'reviews#destroy', as: :remove
   end
 
