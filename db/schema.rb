@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_123349) do
+ActiveRecord::Schema.define(version: 2021_11_22_042827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 2021_11_17_123349) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.integer "available_slots"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_parkings_on_user_id"
   end
 
