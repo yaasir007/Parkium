@@ -13,8 +13,8 @@ before_action :booking_params, only: :create
       @booking = Booking.new(booking_params)
       @booking.user_id = @user.id
       @booking.parking_id = @parking.id
-      # @parking.available_slots -= 1
       if @booking.save!
+          @parking.update(available_slots: @parking.available_slots - 1)
           flash[:alert] = "Booking Created."
           redirect_to mybookings_path
       else

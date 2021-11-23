@@ -1,7 +1,7 @@
-<!-- Admin code Start-->
+<!-- Admin code Start -->
 
 <div class="container">
- <% if @user.is_admin %>
+<% if @user.is_admin %>
   <div>
     <h3 align="center"><%= @parking.name %> </h3>
       <div class="park-show">
@@ -22,8 +22,10 @@
   </div>
         <div class="text-center">
             <%= link_to  "Back", parkings_path ,class: "btn btn-dark p-3"%>
+            <%= link_to  "View Reviews", parking_reviews_path(@parking), class: "btn btn-info p-3" %>
             <%= link_to "Delete", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3"%>
         </div>
+        
   <!-- Admin code End -->
 
 <% else %>
@@ -34,21 +36,21 @@
 
   <!-- ROW 1 DATA 1 -->
     <div class="col">
-    <h2><%= @parking.name %></h2>
-    <span><%=@parking.address %></span>
-        <ul>
-            <li>Description: <%=  @parking.description %></li>
-            <li>Number of Slots: <%=  @parking.number_of_slots %></li>
-            <li>Cost: Rs <%= @parking.fees %></li>
-        </ul>
+      <h2><%= @parking.name %></h2>
+      <span><%=@parking.address %></span>
+          <ul>
+              <li>Description: <%=  @parking.description %></li>
+              <li>Number of Slots: <%=  @parking.number_of_slots %></li>
+              <li>Cost: Rs <%= @parking.fees %></li>
+          </ul>
 
-          <% if @parking.photo.attached? %>
-            <%= cl_image_tag @parking.photo.key,  crop: :fill %>
-          <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-          <% end %>
-          <br><br>
-        <%= link_to  "Back", parkings_path, class:"btn btn-dark" %>
+            <% if @parking.photo.attached? %>
+              <%= cl_image_tag @parking.photo.key,  crop: :fill %>
+            <% else %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <% end %>
+            <br><br>
+          <%= link_to  "Back", parkings_path, class:"btn btn-dark" %>
     </div>
 
 
@@ -96,42 +98,10 @@
               <%end%>
         </li>
       </ul>
-        <% end %>
+          <% end %>
+      <% end %>
     <% end %>
     </div>
   </div>
 </div>
 
-
-
-<!--
-  <div class="container">
-        <br><br><br>
-    <h1>All reviews</h1>
-
-    <% @reviews.each do |review| %>
-      If statement to only dislay the reviews related to this specific parking
-        <% if review.parking == @parking %>
-    <ul>
-        <li>
-            Feedback: <%= review.content  %> ////////////////////
-            Rating: <%= review.rating  %> / 5 ////////////////////
-            If statement to only allow current_user to delete their review
-            <%if review.user == current_user %>
-              <%= link_to "Delete Review", parking_remove_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%>
-            <%end%>
-
-        </li>
-
-    </ul>
-        <% end %>
-    <% end %>
-
-    <%= link_to  "Create a Review", new_parking_review_path(@parking), class: "btn btn-info p-3" %>
-</div>
-<% end %>
-
-
-User code End
-
--->

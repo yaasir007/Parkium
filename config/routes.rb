@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :bookings, except: [:destroy]
 
-  resources :reviews, except: [:index, :edit, :update, :show] #routes for only new,create,destroy
+  resources :reviews, except: [:edit, :update, :show] #routes for only new,create,destroy
   delete 'reviews/:id', to: 'reviews#destroy', as: :remove
   end
 
