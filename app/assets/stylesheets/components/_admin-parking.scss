@@ -5,6 +5,7 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     width: 300px;
     height: 300px;
+    border-radius: 10px;
   }
 
   .card-trip > img {
@@ -75,8 +76,4 @@
   .cards-admin {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-}
-
-.card-category{
-  border-radius: 5px;
 }
