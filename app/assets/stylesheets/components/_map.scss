@@ -1,6 +1,6 @@
 .mapboxgl-popup {
     max-width: 200px;
-    
+
         .container2{
             position: relative;
             p {
@@ -49,4 +49,10 @@
                     font-weight: bolder;
                 }
         }
+}
+
+#map{
+    margin: 5px;
+  padding-top: 10px;
+  border-radius: 5px;
 }
