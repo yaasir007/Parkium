@@ -1,6 +1,12 @@
 class BookingsController < ApplicationController
   before_action :booking_params, only: :create
 
+  def index
+    @user = current_user
+    @bookings = Booking.all
+    @parking = Parking.find(params[:parking_id])
+  end
+
   def new
     @user = current_user
     @parking = Parking.find(params[:parking_id])
@@ -24,18 +30,13 @@ class BookingsController < ApplicationController
 
     def destroy
       @booking = Booking.find(params[:id])
-      @booking.destroy
-      redirect_to mybookings_path
-    else
-      redirect_to new_parking_booking_path(@parking)
+      if @booking.destroy!
+        flash[:alert] = "Booking Removed."
+        redirect_to mybookings_path
+      else
+        render "my_bookings"
+      end
     end
-  end
-
-  def destroy
-  @booking = Booking.find(params[:id])
-  @booking.destroy
-  redirect_to mybookings_path
-  end
 
   private
 

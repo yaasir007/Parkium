@@ -26,6 +26,7 @@
             <%= link_to  "Back", parkings_path ,class: "btn btn-dark p-3"%>
             <%= link_to  "View Reviews", parking_reviews_path(@parking), class: "btn btn-info p-3" %>
             <% if @parking.user_id == @user.id %>
+              <%= link_to  "View Bookings", parking_bookings_path(@parking), class:"btn btn-primary p-3" %>
               <%= link_to "Delete", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3"%>
             <% end %>
         </div>
