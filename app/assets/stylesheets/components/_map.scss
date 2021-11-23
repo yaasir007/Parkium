@@ -1,5 +1,6 @@
 .mapboxgl-popup {
     max-width: 200px;
+    
         .container2{
             position: relative;
             p {
@@ -11,15 +12,14 @@
             a {
                 list-style: none;
                 text-decoration: none;
-                color: yellow;
+                color: whitesmoke
             }
 
             a:hover{
                 font-size: 22px;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
-                background-color: lightskyblue;
                 opacity: 70%;
-                color: maroon;
+                color: black;
             }
         }
 
@@ -41,8 +41,7 @@
 }
 
 .mapboxgl-popup-content {
-    font-family: 'Open Sans', sans-serif;
-    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
         .container {
                 #lefting {
