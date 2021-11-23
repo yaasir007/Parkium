@@ -1,0 +1,35 @@
+.card-trip-banner {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 5px;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+
+.card-trip-banner > img {
+  height: 100px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.card-trip-banner h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip-banner p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip-banner .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
