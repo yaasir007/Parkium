@@ -2,6 +2,11 @@ class ReviewsController < ApplicationController
   before_action :params_reviews, only: [:create] # :edit No need for edit, not a feature yet
   before_action :find_user # only:[:new, :create, :destroy]///No need to specify.Only those 3 method exist
 
+  def index
+    @reviews = Review.all
+    @parking = Parking.find(params[:parking_id])
+  end
+
   def new
     @parking = Parking.find(params[:parking_id])
     @review = Review.new
