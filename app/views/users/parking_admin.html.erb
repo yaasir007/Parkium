@@ -54,7 +54,7 @@ dmin code ends
 
 -->
 
-<div class="cards">
+<div class="cards-admin">
   <div class="card-category">
     <% @parkings.each do |parking| %>
       <% if @user.is_admin && parking.user_id == @user.id %>
