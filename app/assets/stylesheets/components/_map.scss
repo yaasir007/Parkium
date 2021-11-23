@@ -1,3 +1,9 @@
+#map{
+  margin: 6px;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+
 .mapboxgl-popup {
     max-width: 200px;
 
@@ -49,11 +55,4 @@
                     font-weight: bolder;
                 }
         }
-}
-
-#map{
-  margin: 6px;
-  padding-top: 10px;
-  border-radius: 5px;
-
 }
