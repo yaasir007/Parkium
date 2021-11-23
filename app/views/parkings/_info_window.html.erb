@@ -1,14 +1,13 @@
 <div class="container2">
-
-<%# <%= cl_image_tag parking.photo.key, crop: :fill %> %>
-<div class="centered">
-    <p><%= link_to  parking.name, parking_path(parking) %></p>
+    <% if parking.photo.attached? %>
+        <%= cl_image_tag parking.photo.key, crop: :fill %>
+    <% else %>
+        <img src="https://www.shutterstock.com/image-illustration/parking-illustration-car-transportation-auto-park-370982420" />
+    <% end %>
+    <div class="centered">
+        <p><%= link_to  parking.name, parking_path(parking) %></p>
+    </div>
 </div>
-
-</div>
-
-
-
 
 <div class="container">
     <div>
