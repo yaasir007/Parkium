@@ -53,7 +53,7 @@ dmin code ends
 </div>
 
 -->
-
+<div class="container">
 <div class="cards-admin">
     <% @parkings.each do |parking| %>
       <% if @user.is_admin && parking.user_id == @user.id %>
@@ -76,4 +76,5 @@ dmin code ends
   </div>
       <% end %>
     <% end %>
+</div>
 </div>

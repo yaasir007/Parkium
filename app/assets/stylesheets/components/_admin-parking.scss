@@ -37,10 +37,11 @@
 
 .cards-admin {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
-  margin-top: 10px;
-  margin-left: 10px;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-gap: 30px;
+  margin-top: 15px;
+  margin-left: 15px;
+
 }
 
 // Smallest device
@@ -67,13 +68,13 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards-admin {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards-admin {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
   }
 }
