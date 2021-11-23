@@ -56,8 +56,8 @@ dmin code ends
 
 <div class="cards-admin">
     <% @parkings.each do |parking| %>
-  <div class="card-category">
       <% if @user.is_admin && parking.user_id == @user.id %>
+  <div class="card-category">
         <div class="card-trip">
           <% if parking.photo.attached? %>
             <%= cl_image_tag parking.photo.key, crop: :fill %>
@@ -73,7 +73,7 @@ dmin code ends
               <h2 class="card-trip-pricing">Rs.<%= parking.fees %>/hr</h2>
             </div>
         </div>
-          <% end %>
   </div>
+      <% end %>
     <% end %>
 </div>
