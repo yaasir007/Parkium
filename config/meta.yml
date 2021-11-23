@@ -1,0 +1,5 @@
+meta_product_name: "Parkium"
+meta_title: "Parkium - Parking made easy!"
+meta_description: "Parkium lets you easily find and pay for parking using our free website for spaces across the island. Book the parking online and just use the available slot on the due day"
+meta_image: "meta-image.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
