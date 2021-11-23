@@ -35,9 +35,9 @@
 						</thead>
 					<tbody>
 					<% @bookings.each_with_index do |booking, index| %>
-					<%# <% if booking.parking_id == @parking.id %> %>
+					<% if booking.parking_id == @parking.id %>
 						<tr>
-						<th scope="row"><%= index + 1 %></th>
+						<%# <th scope="row"><%= index + 1 %></th> %>
 						<td><%= booking.created_at.strftime("%m/%d/%Y %I:%M%p")  %></td>
 						<td><%= booking.date %></td>
 						<td><%= booking.start_time.strftime("%I:%M%p") %></td>
