@@ -40,8 +40,8 @@
 						<th scope="row"><%= index + 1 %></th>
 						<td><%= booking.created_at.strftime("%m/%d/%Y %I:%M%p")  %></td>
 						<td><%= booking.date %></td>
-						<%# <td><%= booking.start_time.strftime("%I:%M%p")%></td> %>
-						<td><%= booking.end_time.strftime("%I:%M%p")%></td>
+						<td><%= booking.start_time.strftime("%I:%M%p")%></td>
+						<%# <td><%= booking.end_time.strftime("%I:%M%p")%></td> %>
 						<td><%= booking.user.email %></td>
 						<td><%= booking.user.phone_number %></td>
 						</tr>
