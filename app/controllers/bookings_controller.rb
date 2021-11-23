@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-before_action :booking_params, only: :create
+  before_action :booking_params, only: :create
 
   def new
     @user = current_user
@@ -26,13 +26,20 @@ before_action :booking_params, only: :create
       @booking = Booking.find(params[:id])
       @booking.destroy
       redirect_to mybookings_path
+    else
+      redirect_to new_parking_booking_path(@parking)
     end
+  end
 
+  def destroy
+  @booking = Booking.find(params[:id])
+  @booking.destroy
+  redirect_to mybookings_path
+  end
 
-private
+  private
 
-def booking_params
-  params.require(:booking).permit(:date, :start_time, :end_time)
-end
-
+  def booking_params
+    params.require(:booking).permit(:date, :start_time, :end_time)
+  end
 end
