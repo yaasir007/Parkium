@@ -65,13 +65,13 @@ dmin code ends
                 <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
               <% end %>
 
-                <div class="card-trip-infos">
-                  <div>
-                    <%= link_to parking.name, parking_path(parking) %>
-                    <p><%= parking.address %></p>
-                  </div>
-                    <h2 class="card-trip-pricing">Rs.<%= parking.fees %>/hr</h2>
+              <div class="card-trip-infos">
+                <div>
+                  <%= link_to parking.name, parking_path(parking) %>
+                  <p><%= parking.address %></p>
                 </div>
+                  <h2 class="card-trip-pricing">Rs.<%= parking.fees %>/hr</h2>
+              </div>
             </div>
           </div>
         <% end %>
