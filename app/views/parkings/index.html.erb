@@ -1,3 +1,37 @@
+<% if @user.is_admin %>
+<!-- The admin Banner starts here -->
+<div class="d-flex">
+  <div>
+    <div class="card-trip-banner"  style="height: 29vh; width:200px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/2311/2311991.png">
+      <div class="card-trip-infos">
+        <div>
+          <h2>Create & Add</h2>
+          <p>Create and add your parking location!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-trip-banner"  style="height: 29vh; width:200px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/792/792130.png">
+        <div class="card-trip-infos">
+          <div>
+            <h2>Bookings & Reviews</h2>
+            <p>Check parking bookings and reviews!</p>
+          </div>
+        </div>
+    </div>
+
+   <div class="card-trip-banner"  style="height: 29vh; width:200px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/3270/3270287.png"><div class="card-trip-infos">
+          <div>
+            <h2>Edit & Delete</h2>
+            <p>Edit, update or delete your parking location!</p>
+          </div>
+        </div>
+    </div>
+<!-- The admin Banner ends here -->
+<% else %>
 <!-- The Banner starts here -->
 <div class="d-flex">
   <div>
@@ -31,6 +65,8 @@
     </div>
   </div>
   <!-- The Banner view ends here -->
+<% end %>
+
 
   <!-- The Mapbox view starts here -->
   <div id="map"
@@ -40,3 +76,9 @@
   </div>
 </div>
         <!-- The Mapbox view ends here -->
+
+
+
+
+
+
