@@ -60,7 +60,7 @@ dmin code ends
   <div class="card-category">
         <div class="card-trip">
           <% if parking.photo.attached? %>
-            <%= cl_image_tag parking.photo.key, crop: :fill %>
+            <%= cl_image_tag parking.photo.key, crop: :fill%>
           <% else %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
           <% end %>
