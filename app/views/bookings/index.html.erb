@@ -1,0 +1,68 @@
+<!-- Admins Code starts-->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Bookings</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Booking for <%= @parking.name %></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						<thead class="thead-primary">
+						<tr>
+                                <th>Booking Number</th>
+                                <th>Created on</th>
+                                <th>Booked for</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Username</th>
+                                <th>Phone Number</th>
+						</tr>
+						</thead>
+					<tbody>
+					<%# <% @bookings.each_with_index do |booking, index| %> %>
+					<% if booking.parking_id == @parking.id %>
+						<tr>
+						<th scope="row"><%= index + 1 %></th>
+						<td><%= booking.created_at.strftime("%m/%d/%Y %I:%M%p")  %></td>
+						<td><%= booking.date %></td>
+						<td><%= booking.start_time.strftime("%I:%M%p") %></td>
+						<td><%= booking.end_time.strftime("%I:%M%p") %></td>
+						<td><%= booking.user.email %></td>
+						<td><%= booking.user.phone_number %></td>
+						</tr>
+						<% end %>
+					<% end %>
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+	</body>
+</html>
+
+
+
+<!--Admin Code ends-->
