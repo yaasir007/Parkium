@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
+	<div class="background-img"></div>
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row">
@@ -37,7 +38,7 @@
 					<% @bookings.each_with_index do |booking, index| %>
 					<% if booking.parking_id == @parking.id %>
 						<tr>
-						<th scope="row"><%= index + 1 %></th>
+						<th scope="row" class="text-color"><%= index + 1 %></th>
 						<td><%= booking.created_at.strftime("%m/%d/%Y %I:%M%p")  %></td>
 						<td><%= booking.date %></td>
 						<td><%= booking.start_time.strftime("%I:%M%p")%></td>
