@@ -1,41 +1,24 @@
-.form-for{
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white !important;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 54%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 60%;
-  text-align: center;
+.gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #84fab0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+}
+.gradient-custom-4 {
+  /* fallback for old browsers */
+  background: #84fab0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
 }
 
-
-.back-img{
-  background: url(https://res.cloudinary.com/dac3khgir/image/upload/v1637744987/development/pexels-photo-1730754_fpkvx1.jpg);
-  height: 92vh;
-  width: 100%;
-  opacity: 100% !important;
-  background-position: cover;
-  background-size: contain;
-  filter: blur(3px);
-  -webkit-filter: blur(2px);
-}
-
-.ap-suggestion{
-  color:black;
-  background-color: #2C7DA0;
-}
-
-.form-control{
-  cursor: pointer;
-  height: calc(1em + .5rem + 8px);
-}
-
-.fileimg {
-  font-size: large;
+section {
+  background-color: #013A63 !important;
 }
