@@ -43,7 +43,7 @@
                         <td><%= booking.parking.name %></td>
                         <td>
                         <% duration = ((booking.end_time - booking.start_time) / 3600).round %>
-                        
+                        <%= booking.parking.fees * duration %>
                         </td>
 						</tr>
 						<% end %>
