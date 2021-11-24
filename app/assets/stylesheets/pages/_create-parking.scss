@@ -6,23 +6,22 @@
   font-weight: bold;
   border: 3px solid #f1f1f1;
   position: absolute;
-  top: 58%;
+  top: 54%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   width: 60%;
-  //padding: 5px;
   text-align: center;
 }
 
 
 .back-img{
   background: url(https://res.cloudinary.com/dac3khgir/image/upload/v1637744987/development/pexels-photo-1730754_fpkvx1.jpg);
-  height: 100vh;
+  height: 92vh;
   width: 100%;
   opacity: 100% !important;
-  background-position: center;
-  background-size: cover;
+  background-position: cover;
+  background-size: contain;
   filter: blur(3px);
   -webkit-filter: blur(2px);
 }
@@ -33,6 +32,10 @@
 }
 
 .form-control{
-  background-color: #A9D6E5;
   cursor: pointer;
+  height: calc(1em + .5rem + 8px);
+}
+
+.fileimg {
+  font-size: large;
 }
