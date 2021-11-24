@@ -1,19 +1,30 @@
 //background image
 .admin-back-img{
-  height: 100%;
-  width: 100%;
-  //opacity: 100% !important;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(1, 58, 100, 0.6),#A9D6E5), url("https://media.istockphoto.com/photos/aerial-view-parking-lot-and-car-picture-id959429948?b=1&k=20&m=959429948&s=170667a&w=0&h=sFaGUjcbf54A9NaCXCW1qS01P3MQ8Bkaq7b9BhwwSH0=");
+  background: url(https://res.cloudinary.com/dac3khgir/image/upload/v1637779334/development/pexels-photo-5612009_ymfrj0.jpg);
+    height: 100vh;
+    width: 100%;
+    opacity: 100% !important;
+    background-position: center;
+    background-size: cover;
+    filter: blur(3px);
+    -webkit-filter: blur(2px);
+}
+
+.container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 10px;
 }
 
 //card-trip css
 .card-trip {
     overflow: hidden;
     background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 30px #A9D6E5;
     width: 300px;
     height: 300px;
     border-radius: 10px;
@@ -25,6 +36,23 @@
     object-fit: cover;
   }
 
+  h1 { 
+    color: #013A63; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size:35px; 
+    font-weight: bold; 
+    letter-spacing: -1px; 
+    line-height: 1;
+    text-align: center; 
+  }
+
+  .card-trip .linktobeused {
+    list-style: none;
+    text-decoration: none;
+    color: #012A4A;
+    font-size: large;
+  }
+
   .card-trip h2 {
     font-size: 16px;
     font-weight: bold;
@@ -32,8 +60,8 @@
   }
 
   .card-trip p {
-    font-size: 12px;
-    opacity: .6;
+    font-size: 14px;
+    opacity: .9;
     margin: 0;
   }
 
