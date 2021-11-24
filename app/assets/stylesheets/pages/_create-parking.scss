@@ -1,14 +1,27 @@
 .form-for{
-  background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-    color: white !important;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    border: 3px solid #F1F1F1;
-    top: 40%;
-    left: 50%;
-    z-index: 2;
-    width: 60%;
-    padding: 20px;
-    text-align: center;
+  //background-color: rgb(0,0,0); /* Fallback color */
+  background-color: #2a6f97b9; /* Black w/opacity/see-through */
+  color: white !important;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  border: 3px solid #F1F1F1;
+  top: 40%;
+  left: 50%;
+  z-index: 2;
+  width: 60%;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+
+.back-img{
+  background: url(https://res.cloudinary.com/dac3khgir/image/upload/v1637738884/development/parkingnight_ck7xeu.jpg);
+  width: 100%;
+  opacity: 100% !important;
+  background-position: center;
+  background-size: cover;
+  //filter: blur(3px);
+  //-webkit-filter: blur(2px);
+  padding:20px;
 }
