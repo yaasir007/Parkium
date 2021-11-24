@@ -1,26 +1,63 @@
 <!--User code -->
-<br>
-<div align="center">
-    <h1>My Bookings</h1>
-        <% @bookings.reverse_each do |booking| %>
-            <% if @user.id ==  booking.user_id %>
-                <div class="card-product d-flex justify-content-between ">
-                    <div> <%= link_to  "Back", parkings_path, class: "btn btn-info" %> </div>
-                        <div>
-                            <div>
-                                <p>Booked for:  <%= booking.date %></h2></p>
-                                <p>Start_Time - <%= booking.start_time.strftime("%I:%M%p") %></p>
-                                <p>End_Time - <%= booking.end_time.strftime("%I:%M%p") %> </p>
-                            </div>
-                        </div>
-                    <div>
-                        <%= link_to "Delete", booking_path(booking) , method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-                    </div>
-            </div>
-        <br><br>
-    <% end %>
-<% end %>
-</div>
+
+</head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+	<div class="background-img"></div>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<div class="row justify-content-center">
+							<div class="col-md-6 text-center mb-5">
+								<h2 class="heading-section">My booking Details</h2>
+							</div>
+						</div>
+						<table class="table">
+						<thead class="thead-primary">
+						<tr>
+                                <th>Booking Number</th>
+                                <th>Created on</th>
+                                <th>Booked for</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Parking Name</th>
+                                <th>Total Fees</th>
+                                <th>Cancel Booking</th>
+						</tr>
+						</thead>
+					<tbody>
+					<% @bookings.each_with_index do |booking, index| %>
+					<% if booking.user_id == @user.id %>
+						<tr class="text-color">
+						<th scope="row"><%= index + 1 %></th>
+						<td><%= booking.created_at.strftime("%m/%d/%Y %I:%M%p")  %></td>
+						<td><%= booking.date %></td>
+						<td><%= booking.start_time.strftime("%I:%M%p")%></td>
+						<td><%= booking.end_time.strftime("%I:%M%p")%></td>
+						<td><%= booking.parking.name %></td>
+						<td><%= booking.user.phone_number %></td>
+                        <td><%= link_to "Delete", booking_path(booking) , method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
+						</tr>
+						<% end %>
+					<% end %>
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
 
 <!--User code ends -->
-
