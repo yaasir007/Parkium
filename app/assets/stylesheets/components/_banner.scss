@@ -5,24 +5,32 @@
   margin: 5px;
   padding-top: 10px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .card-trip-banner > img {
   height: 100px;
-  width: 100%;
+  width: 35%;
   object-fit: contain;
+  margin-top: 10px;
 }
 
 .card-trip-banner h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  text-align: center;
 }
 
 .card-trip-banner p {
-  font-size: 12px;
+  font-size: 14px;
   opacity: .7;
   margin: 0;
+  text-align: center;
 }
 
 
