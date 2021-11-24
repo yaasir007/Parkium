@@ -1,61 +1,7 @@
-<!--admin code
-
-<div class="container">
-    <h2 style="text-align: center">List of Parking Locations</h2>
-            <br>
-        <div class="cards">
-            <% @parkings.each do |parking| %>
-                <% if @user.is_admin && parking.user_id == @user.id %>
-                    <div class="card-trip">
-                        <% if parking.photo.attached? %>
-                            <%= cl_image_tag parking.photo.key, crop: :fill %>
-                        <% else %>
-                            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-                        <% end %>
-                            <div class="card-trip-infos">
-                                <div>
-                                    <h2><%= link_to parking.name, parking_path(parking) %></h2>
-                                    <p><%= parking.address %></p>
-                                </div>
-                                    <h2 class="card-trip-pricing">Rs.<%= parking.fees %>/hr</h2>
-                            </div>
-                    </div>
-
-        <% end %>
-        <% end %>
-
-
-dmin code ends
-
-<div class="container">
-    <div class="cards d-flex">
-    <% @parkings.each do |parking| %>
-        <% if @user.is_admin && parking.user_id == @user.id %>
-    <div class="card-trip">
-        <% if parking.photo.attached? %>
-            <%= cl_image_tag parking.photo.key, crop: :fill %>
-        <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <% end %>
-
-        <div class="card-trip-infos">
-            <div>
-                <h2><%= link_to parking.name, parking_path(parking) %></h2>
-                <p><%= parking.address %></p>
-            </div>
-        <h2 class="card-trip-pricing">Rs.<%= parking.fees %>/hr</h2>
-        </div>
-    </div>
-<% end %>
-<% end %>
-
-</div>
-</div>
-
--->
-<div class="admin-back-img">
+<div class="admin-back-img"></div>
   <div class="container">
-    <div class="cards-admin">
+    <h1>My Parkings</h1>
+      <div class="cards-admin">
         <% @parkings.each do |parking| %>
           <% if @user.is_admin && parking.user_id == @user.id %>
             <div class="card-category">
@@ -68,7 +14,7 @@ dmin code ends
 
                 <div class="card-trip-infos">
                   <div>
-                    <%= link_to parking.name, parking_path(parking) %>
+                    <strong><%= link_to parking.name, parking_path(parking), class:"linktobeused" %></strong>
                     <p><%= parking.address %></p>
                   </div>
                     <h2 class="card-trip-pricing">Rs.<%= parking.fees %>/hr</h2>
@@ -79,4 +25,3 @@ dmin code ends
         <% end %>
     </div>
   </div>
-</div>
