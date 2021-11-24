@@ -64,7 +64,7 @@
     <div class="col">
         <h2>Booking Form</h2>
         <%= simple_form_for [@parking, @booking], method: :post do |f| %>
-            <%= f.input :date %>
+            <%= f.input :date, as: :date, html5: true %>
             <%= f.input :start_time %>
             <%= f.input :end_time %>
             <div align="center">
