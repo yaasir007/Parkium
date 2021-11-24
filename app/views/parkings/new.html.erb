@@ -1,5 +1,5 @@
 <!--- Admin code -->
-<div class="back-img">
+<div class="back-img"></div>
   <div class="form-for container">
     <h1 style="text-align:center">Creation of a new Parking Space </h1>
     <%= simple_form_for [@parking] do |f| %>
@@ -10,8 +10,7 @@
       <%= f.input :photo, as: :file, required: true %>
       <%= f.input :fees, label: "Fees (Rs) / Hr", html5: true%>
       <%= f.submit 'Create Parking Space', class: "btn btn-info" %>
+    <%= link_to  "Back", parkings_path, class: "btn btn-light" %>
       <% end %>
   </div>
-    <%= link_to  "Back", parkings_path, class: "btn btn-light" %>
-</div>
 <!--- Admin code -->
