@@ -19,6 +19,14 @@
   background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
 }
 
-section {
-  background-color: #013A63 !important;
+.backimg-create {
+    background-color: #013A63 !important;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.mask {
+  position: relative;
+  height: 100%;
 }

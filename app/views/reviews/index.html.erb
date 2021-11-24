@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	<div class="background-img"></div>
-	<section class="ftco-section">
+	<section class="ftco-sections">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -23,9 +23,10 @@
 						<thead class="thead-primary">
 						<tr>
                                 <th>Review Number</th>
+								<th>Created On</th>
                                 <th>Content</th>
                                 <th>Rating</th>
-                                <th>Email Address</th>
+                                <th>Username</th>
 						</tr>
 						</thead>
 					<tbody>
@@ -33,6 +34,7 @@
 					<% if review.parking_id == @parking.id %>
 						<tr class="text-color">
 						<th scope="row"><%= index + 1 %></th>
+						<td><%= review.created_at.strftime("%m/%d/%Y %I:%M%p") %></td>
 						<td><%= review.content %></td>
 						<td><%= review.rating %> / 5</td>
 						<td><%= review.user.email %></td>
@@ -41,6 +43,7 @@
 					<% end %>
 						</tbody>
 						</table>
+						<%= link_to  "Back", parking_path(@parking),  class:"btn btn-dark btn-block btn-lg"  %>
 					</div>
 				</div>
 			</div>
