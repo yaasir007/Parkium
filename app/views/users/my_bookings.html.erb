@@ -41,7 +41,10 @@
                         <td><%= booking.start_time.strftime("%I:%M%p")%></td>
                         <td><%= booking.end_time.strftime("%I:%M%p")%></td>
                         <td><%= booking.parking.name %></td>
-                        <td></td>((booking.end_time - booking.start_time) / 3600)
+                        <td>
+                        <% duration = ((booking.end_time - booking.start_time) / 3600).round %>
+                        
+                        </td>
 						</tr>
 						<% end %>
 					<% end %>
