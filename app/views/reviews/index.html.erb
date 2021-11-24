@@ -1,25 +1,24 @@
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>Reviews</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-
+	<head>
+		<title>Reviews</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 	<body>
+	<div class="background-img"></div>
 	<section class="ftco-section">
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Reviews for <%= @parking.name %></h2>
-				</div>
-			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="table-wrap">
+						<div class="row justify-content-center">
+							<div class="col-md-6 text-center mb-5"><br>
+									<h2 class="heading-section">Reviews For <%= @parking.name %></h2>
+							</div>
+						</div>
 						<table class="table">
 						<thead class="thead-primary">
 						<tr>
@@ -32,7 +31,7 @@
 					<tbody>
 					<% @reviews.each_with_index do |review, index| %>
 					<% if review.parking_id == @parking.id %>
-						<tr>
+						<tr class="text-color">
 						<th scope="row"><%= index + 1 %></th>
 						<td><%= review.content %></td>
 						<td><%= review.rating %> / 5</td>
@@ -49,10 +48,9 @@
 	</section>
 
 	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
 	</body>
 </html>
 
