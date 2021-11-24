@@ -45,6 +45,7 @@
                         <% duration = ((booking.end_time - booking.start_time) / 3600).round %>
                         <%= booking.parking.fees * duration %>
                         </td>
+                        <td><%= link_to "Delete", booking_path(booking) , method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
 						</tr>
 						<% end %>
 					<% end %>
