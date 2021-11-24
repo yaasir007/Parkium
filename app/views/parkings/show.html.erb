@@ -1,5 +1,5 @@
 <!-- Admin code Start -->
-
+<div class="backimg-color"></div>
 <div class="container">
 <% if @user.is_admin %>
   <div>
@@ -13,21 +13,21 @@
         <div>
           <p> Address: <%=  @parking.address %></p>
           <p> Description: <%=  @parking.description %></p>
-          <p> Number Of Slots: <%=  @parking.number_of_slots %></p>
-          <p>  Rs<%=@parking.fees %></p>
+          <p><strong> Available Slots: <%=  @parking.available_slots %> </strong></p>
+          <p><strong> Rs <%=@parking.fees %>/Hr</strong></p>
         </div>
         <% if @parking.user_id == @user.id %>
-        <h2 class="park-show-pricing"><%= link_to  "Edit", edit_parking_path(@parking),class: "btn btn-success p-3" %></h2>
+          <%= link_to "", edit_parking_path(@parking),class: "btn btn-info p-3 far fa-edit" %>
         <% end %>
       </div>
     </div>
   </div>
         <div class="text-center">
-            <%= link_to  "Back", parkings_path ,class: "btn btn-dark p-3"%>
-            <%= link_to  "View Reviews", parking_reviews_path(@parking), class: "btn btn-info p-3" %>
+            <%= link_to  "", parkings_path ,class: "btn btn-dark p-3 fas fa-chevron-circle-left"%> 
+            <%= link_to  "View Reviews", parking_reviews_path(@parking), class: "reviewbtn btn btn-info p-3" %>
             <% if @parking.user_id == @user.id %>
-              <%= link_to  "View Bookings", parking_bookings_path(@parking), class:"btn btn-primary p-3" %>
-              <%= link_to "Delete", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3"%>
+              <%= link_to  "View Bookings", parking_bookings_path(@parking), class:"bookingbtn btn btn-primary p-3" %>
+              <%= link_to "", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3 fas fa-trash"%>
             <% end %>
         </div>
         
