@@ -11,6 +11,7 @@ class ParkingsController < ApplicationController
         lat: parking.latitude,
         lng: parking.longitude,
         info_window: render_to_string(partial: "info_window", locals: { parking: parking })
+        image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
   end
