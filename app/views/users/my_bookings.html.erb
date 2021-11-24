@@ -36,6 +36,7 @@
 					<% if booking.user_id == @user.id %>
 						<tr class="text-color">
 						<th scope="row"><%= index + 1 %></th>
+                        <td><%= booking.created_at.strftime("%m/%d/%Y %I:%M%p")  %></td>
 						</tr>
 						<% end %>
 					<% end %>
