@@ -23,6 +23,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initAutocompleteAddress } from '../plugins/init_autocomplete_address';
+import { loadDynamicBannerText } from '../plugins/banner';
 
 
 // Internal imports, e.g:
@@ -34,4 +35,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initAutocompleteAddress();
+  loadDynamicBannerText();
 });
