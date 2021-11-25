@@ -55,7 +55,7 @@
       <p><i class="fas fa-comment-medical"></i> <%=  @parking.description %></p>
       <p><i class="fas fa-list-ol"></i> Number of Slots: <%=  @parking.number_of_slots %></p>
       <p><i class="fas fa-list-ol"></i> Available Slots:  <%= @parking.available_slots %></p>
-      <p><i class="far fa-credit-card"></i> Rs <%= @parking.fees %></p>
+      <p><i class="far fa-credit-card"></i> Rs <%= @parking.fees %>/Hr</p>
     </div>
 
     <div class="banner-form-booking">
@@ -82,16 +82,21 @@
       <div class="col col-3">Feedback</div>
       <div class="col col-2">Rating (out of 5)</div>
       <div class="col col-2">Username</div>
+      <div class="col col-1">Cancel Booking</div>
     </li>
-
-
-  <% @reviews.each_with_index do | review, index| %>
+  
+  <% count = 1 %>
+  <% @reviews.reverse_each do |review| %>
     <% if review.parking_id == @parking.id%>
     <li class="table-row">
-      <div class="col col-1" > <%= index + 1  %> </div>
+      <div class="col col-1" > <%= count %> </div>
+      <% count += 1 %>
       <div class="col col-3" > <%= review.content  %> </div>
       <div class="col col-2"><%= review.rating  %></div>
       <div class="col col-2"><%= review.user.first_name %></div>
+      <div class="col col-1">
+      <%= link_to "", parking_review_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3 fas fa-trash"%>
+      </div>
     </li>
     <% end %>
   <% end %>
