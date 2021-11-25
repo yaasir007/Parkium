@@ -1,0 +1,124 @@
+<head>
+    <meta charset="utf-8">
+    <title>Surprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+#bodyid {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #151820; 
+    overflow: hidden;
+}
+
+.text-container h1{
+    color: #fff; •
+    font-size: 300px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 80px;
+}
+
+.text-container h1 span{
+    font-size: 80px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.text-container .animated-text{
+    position: relative;
+    background: #4285F4; O
+    margin-top: 15px;
+    width: 570px;
+    height: 75px;
+    box-shadow: 0 0 10px #4285F4,
+                        0 0 120px #4285F4;
+    overflow: hidden;
+}
+
+.text-container .animated-text:before{
+    content: '';
+    background: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    transform: skew(25deg) translateX(-20px);
+}
+
+.text-container .animated-text h2{
+    color: #fff; •
+    font-size: 90px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 75px;
+}
+
+.text-container .animated-text h2:nth-child(1){
+    animation: text-move 15s infinite;
+}
+@keyframes text-move{
+    0%{
+        margin-top: 0;
+    }
+    10%{
+        margin-top: -75px;
+    }
+    20%{
+        margin-top: -150px;
+    }
+    30%{
+        margin-top: -225px;
+    }
+    40%{
+        margin-top: -300px;
+    }
+    50%{
+        margin-top: -75px;
+    }
+    60%{
+        margin-top: -150px;
+    }
+    70%{
+        margin-top: -225px;
+    }
+    80%{
+        margin-top: -150px;
+    }
+    90%{
+        margin-top: -75px;
+    }
+    100%{
+        margin-top: 0;
+    }
+}
+
+h1 img {
+    width: 300px;
+    height:180px;
+}
+    </style>
+</head>
+    <div id = "bodyid"> 
+        <div class="text-container">
+            <h1> <img src="https://res.cloudinary.com/dac3khgir/image/upload/v1637872554/development/logo2_cz8vip.png"> <br>Thank You<br><span>Teachers</span></h1>
+                <div class="animated-text">
+                    <h2>Simon</h2>
+                    <h2>Maelie</h2>
+                    <h2>Fabrice</h2>
+                    <h2>Temije</h2>
+                    <h2>Dushyant</h2>
+                    <h2>Jean Paul</h2>
+                </div>
+        </div>
+    </div>
+</html>

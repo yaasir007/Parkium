@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   get 'mybookings', to: 'users#my_bookings'
   get 'adminparking', to: 'users#parking_admin'
-  get 'surprise' to: 'users#surprise'
+  get 'surprise', to: 'users#surprise'
+  
   resources :bookings, only: [:destroy]
 
   resources :parkings do

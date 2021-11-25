@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     end
 
     def surprise
-        
+        @user = current_user
     end
-
 end
