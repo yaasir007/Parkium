@@ -1,112 +1,90 @@
 <!-- Admin code Start -->
-<div class="backimg-color"></div>
-<div class="container">
 <% if @user.is_admin %>
-  <div>
-    <h3 align="center"><%= @parking.name %> </h3>
-      <div class="park-show">
-        <% if @parking.photo.attached? %>
+  <div class="backimg-color"></div>
+  <div class="container">
+    <div>
+      <h3 align="center"><%= @parking.name %> </h3>
+        <div class="park-show">
+          <% if @parking.photo.attached? %>
             <%= cl_image_tag @parking.photo.key, crop: :fill %>
-        <% else %>
+          <% else %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <% end %>  <div class="park-show-infos">
-        <div>
-          <p> Address: <%=  @parking.address %></p>
-          <p> Description: <%=  @parking.description %></p>
-          <p><strong> Available Slots: <%=  @parking.available_slots %> </strong></p>
-          <p><strong> Rs <%=@parking.fees %>/Hr</strong></p>
+          <% end %>  
+            <div class="park-show-infos">
+            <div>
+              <p> Address: <%=  @parking.address %></p>
+              <p> Description: <%=  @parking.description %></p>
+              <p><strong> Available Slots: <%=  @parking.available_slots %> </strong></p>
+              <p><strong> Rs <%=@parking.fees %>/Hr</strong></p>
+            </div>
+              <% if @parking.user_id == @user.id %>
+                <%= link_to "", edit_parking_path(@parking),class: "btn btn-info p-3 far fa-edit" %>
+              <% end %>
+            </div>
+          </div>
         </div>
-        <% if @parking.user_id == @user.id %>
-          <%= link_to "", edit_parking_path(@parking),class: "btn btn-info p-3 far fa-edit" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-        <div class="text-center">
-            <%= link_to  "", parkings_path ,class: "btn btn-dark p-3 fas fa-chevron-circle-left"%> 
-            <%= link_to  "View Reviews", parking_reviews_path(@parking), class: "reviewbtn btn btn-info p-3" %>
-            <% if @parking.user_id == @user.id %>
-              <%= link_to  "View Bookings", parking_bookings_path(@parking), class:"bookingbtn btn btn-primary p-3" %>
-              <%= link_to "", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3 fas fa-trash"%>
-            <% end %>
+          <div class="text-center">
+              <%= link_to  "", parkings_path ,class: "btn btn-dark p-3 fas fa-chevron-circle-left"%> 
+              <%= link_to  "View Reviews", parking_reviews_path(@parking), class: "reviewbtn btn btn-info p-3" %>
+              <% if @parking.user_id == @user.id %>
+                <%= link_to  "View Bookings", parking_bookings_path(@parking), class:"bookingbtn btn btn-primary p-3" %>
+                <%= link_to "", parking_destroy_path(@parking), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3 fas fa-trash"%>
+              <% end %>
+          </div>
         </div>
-        
+
   <!-- Admin code End -->
 
 <% else %>
 
+  <div id="banner">
+    <% if @parking.photo.attached? %>
+      <%= cl_image_tag @parking.photo.key,  crop: :fill %>
+    <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <% end %>
+  </div>
 
-<div class="container">
-  <div class="row row-cols-2">
+<!-- Banner parking details and booking form -->
 
-  <!-- ROW 1 DATA 1 -->
-    <div class="col">
-      <h2><%= @parking.name %></h2>
-      <span><%=@parking.address %></span>
-          <ul>
-              <li>Description: <%=  @parking.description %></li>
-              <li>Number of Slots: <%=  @parking.number_of_slots %></li>
-              <li>Cost: Rs <%= @parking.fees %></li>
-          </ul>
-
-            <% if @parking.photo.attached? %>
-              <%= cl_image_tag @parking.photo.key,  crop: :fill %>
-            <% else %>
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-            <% end %>
-            <br><br>
-          <%= link_to  "Back", parkings_path, class:"btn btn-dark" %>
+<div class="d-flex justify-content-between">
+    <div class="banner-text">
+      <%= @parking.name %>
+      <%=@parking.address %>
+        <ul>
+            <li>Description: <%=  @parking.description %></li>
+            <li>Number of Slots: <%=  @parking.number_of_slots %></li>
+            <li>Cost: Rs <%= @parking.fees %></li>
+        </ul>
     </div>
 
-
-  <!-- ROW 1 DATA 2 -->
-
-    <div class="col">
-        <h2>Booking Form</h2>
-        <%= simple_form_for [@parking, @booking], method: :post do |f| %>
-            <%= f.input :date, as: :date, html5: true %>
-            <%= f.input :start_time %>
-            <%= f.input :end_time %>
-            <div align="center">
-          <%= f.button :submit, "Book Me", class:"btn btn-success" %>
-          <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
-        <% end %>
-            </div>
+    <div class="banner-form-booking">
+      <h2>Booking Form</h2>
+          <%= simple_form_for [@parking, @booking], method: :post do |f| %>
+              <%= f.input :date, as: :date, html5: true %>
+              <%= f.input :start_time %>
+              <%= f.input :end_time %>
+            <%= f.button :submit, "Book Me", class:"btn btn-success" %>
+            <%= link_to  "Back", parkings_path, class: "btn btn-dark" %>
+          <% end %>
     </div>
+</div>  
 
-  <!-- ROW 2 DATA 1 -->
-
-    <div class="col">
-      <h1>Add a Review </h1>
-      <%= simple_form_for  [@parking, @review] do |f| %>
-          <%= f.input :content, html5: true, required: true %>
-          <%= f.input :rating, collection: 1..5 %>
-          <%= f.submit 'Create Review', class:"btn btn-success" %>
-          <%= link_to  "Back", parkings_path, class:"btn btn-dark" %>
-      <% end %>
-    </div>
-
-
-    <div class="col">  
-      <h1 align="center">All reviews</h1>
+<div id="user-show-reviews">
+    <h1>All reviews</h1>
         <% @reviews.each do |review| %>
         <!-- If statement to only dislay the reviews related to this specific parking -->
         <% if review.parking == @parking %>
-      <ul>
-          <li>
-              Feedback: <%= review.content  %> <br>
-              Rating: <%= review.rating  %> / 5 <br> 
-              <br>
-              <!-- If statement to only allow current_user to delete their review -->
+              Feedback: <%= review.content  %> 
+              Rating: <%= review.rating  %> / 5 <
+        <!-- If statement to only allow current_user to delete their review -->
               <%if review.user == current_user %>
                 <%= link_to "Delete Review", parking_remove_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%>
               <%end%>
-        </li>
-      </ul>
           <% end %>
       <% end %>
-    <% end %>
-    </div>
-  </div>
 </div>
+
+<% end %>
+
 
