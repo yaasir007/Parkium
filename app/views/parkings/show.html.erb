@@ -71,12 +71,13 @@
 </div>  
 
 <div id="user-show-reviews">
-    <h1>All reviews</h1>
+    <h1>Reviews on <%= @parking.name %> </h1>
         <% @reviews.each do |review| %>
         <!-- If statement to only dislay the reviews related to this specific parking -->
         <% if review.parking == @parking %>
               Feedback: <%= review.content  %> 
-              Rating: <%= review.rating  %> / 5 <
+              Rating: <%= review.rating  %> / 5 
+              ~ <%= review.user.first_name %>
         <!-- If statement to only allow current_user to delete their review -->
               <%if review.user == current_user %>
                 <%= link_to "Delete Review", parking_remove_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%>
