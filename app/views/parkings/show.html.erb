@@ -81,38 +81,30 @@
       <div class="col col-1">Review Number</div>
       <div class="col col-3">Feedback</div>
       <div class="col col-2">Rating (out of 5)</div>
-      <div class="col col-1">Username</div>
-      <div class="col col-1"></div>
+      <div class="col col-2">Username</div>
     </li>
 
 
-  <% @reviews.each_with_index do |review, index| %>
+  <% @reviews.each_with_index do | review, index| %>
     <% if review.parking_id == @parking.id%>
     <li class="table-row">
       <div class="col col-1" > <%= index + 1  %> </div>
       <div class="col col-3" > <%= review.content  %> </div>
       <div class="col col-2"><%= review.rating  %></div>
-      <div class="col col-1" ><%= review.user.first_name %></div>
-      <% if review.user == current_user %>
-      <div class="col col-1"> 
-          <%= link_to "", parking_remove_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger p-3 fas fa-trash"%> 
-        <%end%>
-      </div>
+      <div class="col col-2"><%= review.user.first_name %></div>
     </li>
     <% end %>
   <% end %>
-
 
   <%= simple_form_for  [@parking, @review] do |f| %>
     <li class="table-row">
       <div class="col col-1" ><strong>Add Review</strong></div>
       <div class="col col-3" ><strong><%= f.input :content,label: "Feedback" %></strong></div>
       <div class="col col-2" ><strong><%= f.input :rating, label: "", collection: 1..5%></strong></div>
-      <div class="col col-1" ></div>
-      <div class="col col-1"  ><strong><%= f.submit "+", class: "btn btn-success form-font" %></strong></div>
+      <div class="col col-2"  ><strong><%= f.submit "+", class: "btn btn-success form-font" %></strong></div>
     </li>
-  <% end %>
   </ul>
+  <% end %>
 </div>
 
 <% end %>
