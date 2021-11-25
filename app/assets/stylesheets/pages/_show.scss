@@ -67,8 +67,22 @@
 .banner-text {
   position: relative;
   z-index: 1;
-  top: 100px;
+  top: 50px;
   left: 10%;
+  color: #013A63;
+  font-size: 20px;
+  background-color:  #a9d6e596;
+  padding: 10px;
+  border-radius: 15px;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.banner-text h2 {
+  color: #013A63;
+}
+
+.banner-text p{
+  max-width: 35ch;
 }
 
 .banner-form-booking {
@@ -77,8 +91,15 @@
   top: 50px;
   right: 10%;
   width: 40%;
+  color: white !important;
 }
 
+#bookingformtitle{
+  color: white;
+}
+
+
+//Reviews CSS
 #user-show-reviews{
   padding: 90px;
 
