@@ -87,6 +87,7 @@
 
 
   <% @reviews.each_with_index do |review, index| %>
+    <% if review.parking_id == @parking.id%>
     <li class="table-row">
       <div class="col col-1" > <%= index + 1  %> </div>
       <div class="col col-3" > <%= review.content  %> </div>
@@ -98,6 +99,7 @@
         <%end%>
       </div>
     </li>
+    <% end %>
   <% end %>
 
 
