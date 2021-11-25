@@ -7,8 +7,7 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Add New Parking Space</h2>
 
-              <form>
-              <%= simple_form_for [@parking] do |f| %>
+              <%= simple_form_for(@parking) do |f| %>
                 <div class="form-outline mb-4">
                   <%= f.input :name, html5: true, required: true, class:"form-control form-control-lg" %>
                 </div>
@@ -42,7 +41,6 @@
                 </p>
 
                 <% end %>
-              </form>
 
             </div>
           </div>
