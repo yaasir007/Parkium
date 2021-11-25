@@ -9,6 +9,7 @@
       <%= f.input :photo, as: :file %>
       <%= f.input :fees, label: "Fees (Rs) / Hr", html5: true%>
       <%= f.submit 'Update Parking Space', class: "btn btn-success" %>
+      <%= link_to  "Back", parking_path(@parking), class:"btn btn-dark" %>
     <% end %>
 </div>
 <!--- Admin code -->
