@@ -10,4 +10,7 @@ class UsersController < ApplicationController
         @parkings = Parking.all
     end
 
+    def surprise
+        @user = current_user
+    end
 end
