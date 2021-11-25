@@ -15,7 +15,7 @@
 				<div class="col-md-12">
 					<div class="table-wrap">
 						<div class="row justify-content-center">
-							<div class="col-md-6 text-center mb-5"><br>
+							<div class="col-md-6 text-center mb-5">
 									<h2 class="heading-section">Reviews For <%= @parking.name %></h2>
 							</div>
 						</div>
@@ -30,13 +30,27 @@
 						</tr>
 						</thead>
 					<tbody>
-					<% @reviews.each_with_index do |review, index| %>
+					<% count = 1 %>
+					<% @reviews.reverse_each do |review| %>
 					<% if review.parking_id == @parking.id %>
 						<tr class="text-color">
-						<th scope="row"><%= index + 1 %></th>
+						<th scope="row"><%= count %></th>
+						<% count += 1 %>
 						<td><%= review.created_at.strftime("%m/%d/%Y %I:%M%p") %></td>
 						<td><%= review.content %></td>
-						<td><%= review.rating %> / 5</td>
+						<td>
+							<% if  review.rating == 1 %>
+								<i class="fas fa-star"></i>
+							<% elsif  review.rating == 2 %> 
+								<i class="fas fa-star"></i><i class="fas fa-star"></i>
+							<% elsif  review.rating == 3 %>
+								<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+							<% elsif review.rating == 4 %>
+								<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+							<% else %>
+								<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+							<% end %>
+						</td>
 						<td><%= review.user.email %></td>
 						</tr>
 						<% end %>
