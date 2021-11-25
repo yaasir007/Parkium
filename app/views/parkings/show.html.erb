@@ -70,21 +70,76 @@
     </div>
 </div>  
 
+<!--
 <div id="user-show-reviews">
     <h1>Reviews on <%= @parking.name %> </h1>
         <% @reviews.each do |review| %>
-        <!-- If statement to only dislay the reviews related to this specific parking -->
+        
         <% if review.parking == @parking %>
               Feedback: <%= review.content  %> 
               Rating: <%= review.rating  %> / 5 
               ~ <%= review.user.first_name %>
-        <!-- If statement to only allow current_user to delete their review -->
+        
               <%if review.user == current_user %>
                 <%= link_to "Delete Review", parking_remove_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%>
               <%end%>
           <% end %>
       <% end %>
+-->
+
+<div class="container-reviews"  id="user-show-reviews">
+  <h2>Reviews on <%= @parking.name %> </h2>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Review Number</div>
+      <div class="col col-3">Feedback</div>
+      <div class="col col-2">Rating (out of 5)</div>
+      <div class="col col-1">Username</div>
+      <div class="col col-1"></div>
+    </li>
+
+
+  <% @reviews.each_with_index do |review, index| %>
+    <li class="table-row">
+      <div class="col col-1" > <%= index + 1  %> </div>
+      <div class="col col-3" > <%= review.content  %> </div>
+      <div class="col col-2"><%= review.rating  %></div>
+      <div class="col col-1" ><%= review.user.first_name %></div>
+      <% if review.user == current_user %>
+      <div class="col col-1"> 
+          <%= link_to "", parking_remove_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger p-3 fas fa-trash"%> 
+        <%end%>
+      </div>
+    </li>
+  <% end %>
+
+
+  <%= simple_form_for  [@parking, @review] do |f| %>
+    <li class="table-row">
+      <div class="col col-1" ><strong>Add Review</strong></div>
+      <div class="col col-3" ><strong><%= f.input :content,label: "" %></strong></div>
+      <div class="col col-2" ><strong><%= f.input :rating, label: "", collection: 1..5%></strong></div>
+      <div class="col col-1" ></div>
+      <div class="col col-1"  ><strong><%= f.submit "+", class: "btn btn-success form-font" %></strong></div>
+    </li>
+  <% end %>
+  </ul>
 </div>
+
+<!---
+
+      <div>
+        <h1>Add a Review </h1>
+        <%= simple_form_for  [@parking, @review] do |f| %>
+            <%= f.input :content, html5: true, required: true %>
+            <%= f.input :rating, collection: 1..5 %>
+            <%= f.submit 'Create Review', class:"btn btn-success" %>
+            <%= link_to  "Back", parkings_path, class:"btn btn-dark" %>
+        <% end %>
+    </div>
+</div>
+
+-->
 
 <% end %>
 
