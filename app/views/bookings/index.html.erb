@@ -35,10 +35,12 @@
 						</tr>
 						</thead>
 					<tbody>
-					<% @bookings.each_with_index do |booking, index| %>
+					<% count = 1  %>
+					<% @bookings.reverse_each do |booking| %>
 					<% if booking.parking_id == @parking.id %>
 						<tr class="text-color">
-						<th scope="row"><%= index + 1 %></th>
+						<th scope="row"><%= count  %></th>
+						<% count += 1 %>
 						<td><%= booking.created_at.strftime("%m/%d/%Y %I:%M%p")  %></td>
 						<td><%= booking.date %></td>
 						<td><%= booking.start_time.strftime("%I:%M%p")%></td>

@@ -25,7 +25,7 @@
           </div>
         </div>
           <div class="text-center">
-              <%= link_to  "", parkings_path ,class: "btn btn-dark p-3 fas fa-chevron-circle-left"%> 
+              <%= link_to  "", adminparking_path ,class: "btn btn-dark p-3 fas fa-chevron-circle-left"%> 
               <%= link_to  "View Reviews", parking_reviews_path(@parking), class: "reviewbtn btn btn-info p-3" %>
               <% if @parking.user_id == @user.id %>
                 <%= link_to  "View Bookings", parking_bookings_path(@parking), class:"bookingbtn btn btn-primary p-3" %>
@@ -79,8 +79,9 @@
   <ul class="responsive-table">
     <li class="table-header">
       <div class="col col-1">Review Number</div>
-      <div class="col col-3">Feedback</div>
-      <div class="col col-2">Rating (out of 5)</div>
+      <div class="col col-1">Created On</div>
+      <div class="col col-2">Feedback</div>
+      <div class="col col-2">Rating</div>
       <div class="col col-2">Username</div>
       <div class="col col-1">Cancel Booking</div>
     </li>
@@ -91,8 +92,23 @@
     <li class="table-row">
       <div class="col col-1" > <%= count %> </div>
       <% count += 1 %>
-      <div class="col col-3" > <%= review.content  %> </div>
-      <div class="col col-2"><%= review.rating  %></div>
+      <div class="col col-1" > <%= review.created_at.strftime("%m/%d/%Y %I:%M%p") %> </div>
+      <div class="col col-2" > <%= review.content  %> </div>
+
+      <div class="col col-2">
+        <% if  review.rating == 1 %>
+          <i class="fas fa-star"></i>
+        <% elsif  review.rating == 2 %> 
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% elsif  review.rating == 3 %>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% elsif review.rating == 4 %>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% else %>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% end %>
+      </div>
+
       <div class="col col-2"><%= review.user.first_name %></div>
       <div class="col col-1">
       <%= link_to "", parking_review_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3 fas fa-trash"%>
@@ -103,10 +119,10 @@
 
   <%= simple_form_for  [@parking, @review] do |f| %>
     <li class="table-row">
-      <div class="col col-1" ><strong>Add Review</strong></div>
+      <div class="col col-2" ><strong>Add Review</strong></div>
       <div class="col col-3" ><strong><%= f.input :content,label: "Feedback" %></strong></div>
-      <div class="col col-2" ><strong><%= f.input :rating, label: "", collection: 1..5%></strong></div>
-      <div class="col col-2"  ><strong><%= f.submit "+", class: "btn btn-success form-font" %></strong></div>
+      <div class="col col-3" ><strong><%= f.input :rating, label: "", collection: 1..5%></strong></div>
+      <div class="col col-3"  ><strong><%= f.submit "+", class: "btn btn-success form-font" %></strong></div>
     </li>
   </ul>
   <% end %>
