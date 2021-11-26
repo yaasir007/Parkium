@@ -83,7 +83,7 @@
       <div class="col col-2">Feedback</div>
       <div class="col col-2">Rating</div>
       <div class="col col-2">Username</div>
-      <div class="col col-1">Cancel Booking</div>
+      <div class="col col-1">Cancel Review</div>
     </li>
   
   <% count = 1 %>
@@ -111,7 +111,9 @@
 
       <div class="col col-2"><%= review.user.first_name %></div>
       <div class="col col-1">
+      <% if review.user_id == @user.id %>
       <%= link_to "", parking_review_path(@parking, review), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-danger  p-3 fas fa-trash"%>
+      <% end %>
       </div>
     </li>
     <% end %>
