@@ -81,10 +81,15 @@
 
 .surprise{
   color: #012A4A;
-  list-style: none;
-  text-decoration: none;
+  list-style: none !important;
+  text-decoration: none !important;
   font-size: 14px;
-  font-weight: bolder;
+  font-weight: bolder !important;
+  opacity: 100% !important;
+}
+
+.surprise:hover {
+  color: #012A4A !important;
 }
 
   .card-trip .card-trip-infos {
