@@ -1,11 +1,11 @@
 <h1 align="center">Parkium</h1>
 
 <p align="center">
-For:  Vehicle Owners/drivers
-Who need to: find a spot to park their vehicle legally
-And want to: book a hassle-free parking space 
-They choose: Parkium
-Because it enables them to: peacefully secure a parking beforehands
+For:  Vehicle Owners/drivers <br>
+Who need to: find a spot to park their vehicle legally <br>
+And want to: book a hassle-free parking space  <br>
+They choose: Parkium <br>
+Because it enables them to: peacefully secure a parking beforehands 
 </p>
 
 ## Links
