@@ -1,12 +1,49 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+<h1 align="center">Parkium</h1>
 
-A Rails App with the devise template for users.
+<p align="center">
+For:  Vehicle Owners/drivers
+Who need to: find a spot to park their vehicle legally
+And want to: book a hassle-free parking space 
+They choose: Parkium
+Because it enables them to: peacefully secure a parking beforehands
+</p>
 
-Parkium is a Parking App with a map to guide users.
+## Links
 
-For users:
+- [Repo] - Parkium - https://github.com/yaasir007/Parkium
 
-1. The user is able to sign up and login.
-2. The user can browse the parking location that Parkium has to offer.
-3. The user can book a slot in a parking location.
-4. The user can leave a feedback for the parking location.
+- [Live] - http://www.parkium.quest/ || https://yaasir007-parkium.herokuapp.com/
+
+- [API] - Mapbox - https://www.mapbox.com/
+
+## Screenshots
+
+![Home Page](/screenshots/1.png "Home Page")
+
+![](/screenshots/2.png)
+
+![](/screenshots/3.png)
+
+## Available Commands
+Fork the repo.
+Bundle install.
+Rails s.
+
+## Built With
+- JavaScript
+- Rails
+- Ruby
+- Webpack
+- HTML
+- CSS
+- Devise template
+
+## Author
+**Mohammad Yaasir Cheekoory**
+
+- [Profile] - https://github.com/yaasir007
+- [Email](mailto:yaasir1997@gmail.com?subject=Hi "Hi!")
+- [Website] - https://myc007-portfolio.herokuapp.com/
+
+## 🤝 Support
+Give a ⭐️ if you like this project!
