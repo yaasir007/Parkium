@@ -18,6 +18,7 @@ Because it enables them to: peacefully secure a parking beforehands
 
 ## Screenshots
 
+<h3>Homepage</h3>
 ![Home Page](/screenshots/homepage.png "Home Page")
 
 <h3>User_Side</h3>
@@ -41,7 +42,7 @@ Bundle install.
 Rails s.
 
 ## User Stories
-As a user, I can access parking spaces around the city from home SO THAT I am aware of the parking spaces around me.
+<label>As a user, I can access parking spaces around the city from home SO THAT I am aware of the parking spaces around me.</label>
 As a user, I can search parking by address SO THAT I can get a parking at a desired location.
 As a user, I can search parking by time SO THAT I can get a parking at the desired time.
 As a user, I can visually navigate parking location SO THAT I can browse between parking locations.
