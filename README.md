@@ -21,14 +21,21 @@ Because it enables them to: peacefully secure a parking beforehands
 ![Home Page](/screenshots/homepage.png "Home Page")
 
 ![User-Side](/screenshots/user/user-homepage.png "User-Side")
+
 ![User-Side](/screenshots/user/user-booking.png "User-Side")
+
 ![User-Side](/screenshots/user/user-confirmation.png "User-Side")
+
 ![User-Side](/screenshots/user/user-feedback.png "User-Side")
 
 ![Admin-Side](/screenshots/admin/admin-listedparking.png "Admin-Side")
+
 ![Admin-Side](/screenshots/admin/admin-parkingdetails.png "Admin-Side")
+
 ![Admin-Side](/screenshots/admin/admin-parkingbooking.png "Admin-Side")
+
 ![Admin-Side](/screenshots/admin/admi-parkingreviews.png "Admin-Side") 
+
 ![Admin-Side](/screenshots/admin/admin-newlocation.png "Admin-Side")
 
 ## Available Commands
