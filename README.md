@@ -73,6 +73,8 @@ As an admin, I can view a parking location SO THAT I can see a parking location'
 - Webpack
 - HTML
 - CSS
+- Bootstrap
+- SCSS
 - Devise template
 
 ## Author
