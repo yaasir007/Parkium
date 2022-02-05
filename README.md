@@ -74,8 +74,6 @@ As an admin, I can view a parking location SO THAT I can see a parking location'
 - [Profile] - https://github.com/yaasir007
 - [Email](mailto:yaasir1997@gmail.com?subject=Hi "Hi!")
 - [Website] - https://myc007-portfolio.herokuapp.com/
-- [Facebook] -https://www.facebook.com/MOH.Yaasir/
-- [Instagram] - https://www.instagram.com/yaasir786/
 - [LinkedIn] - https://www.linkedin.com/in/yaasir007/
 
 
