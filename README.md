@@ -18,7 +18,7 @@ Because it enables them to: peacefully secure a parking beforehands
 
 ## Screenshots
 
-![Home Page](/screenshots/hompage.png "Home Page")
+![Home Page](/screenshots/homepage.png "Home Page")
 
 ![](/screenshots/2.png)
 
