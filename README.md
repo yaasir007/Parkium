@@ -77,14 +77,5 @@ As an admin, I can view a parking location SO THAT I can see a parking location'
 - SCSS
 - Devise template
 
-## Author
-**Mohammad Yaasir Cheekoory**
-
-- [Profile] - https://github.com/yaasir007
-- [Email](mailto:yaasir1997@gmail.com?subject=Hi "Hi!")
-- [Website] - https://myc007-portfolio.herokuapp.com/
-- [LinkedIn] - https://www.linkedin.com/in/yaasir007/
-
-
 ## 🤝 Support
 Give a ⭐️ if you like this project!
