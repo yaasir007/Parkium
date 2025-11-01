@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   resources :bookings, only: [:destroy]
 
   resources :parkings do
-  delete 'parkings/:id', to: 'parkings#destroy', as: :destroy
-
-  resources :bookings, except: [:destroy]
-
-  resources :reviews, except: [:edit, :update, :show] #routes for only new,create,destroy
-  delete 'reviews/:id', to: 'reviews#destroy', as: :remove
+    delete 'parkings/:id', to: 'parkings#destroy', as: :destroy
+  
+    resources :bookings, except: [:destroy]
+  
+    resources :reviews, except: [:edit, :update, :show] #routes for only new,create,destroy
+    delete 'reviews/:id', to: 'reviews#destroy', as: :remove
   end
 
   devise_scope :user do
